@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-editable.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table-editable.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<style type="text/css">
+	
+
+	.list{
+		margin:20px 10px 20px 10px ;
+	}
+	.item_disabled{
+		padding-bottom:6px;
+		font-weight: normal;
+		color:#666;
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.item_disabled span{
+		font-weight: bold;
+		font-size: 14px;
+		text-align: left;
+	}
+
+
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html" class='active'>市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>	
+		</ul>
+		
+	</div>
+	
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="zh-market-survey-list.html">市场调研</a></li>
+		  <li role="presentation"><a href="zh-market-faq-look.html">共性问题</a></li>
+		  <li role="presentation" class="active"><a href="zh-market-newProduct-submit.html">新产品需求</a></li>
+		</ul>
+	</div>
+	
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+		  <li role="presentation"><a href="#">新产品需求提报</a></li>
+		</ul>
+		<form id='newProductSubmitForm' action="" style='margin-top:20px'>
+			<div class='form-group'>
+				<label>用途 <span class='text-danger'>*</span></label>
+				<input type="text" name='use' class="form-control formItem">
+			</div>
+			<div class='form-group'>
+				<label>类似产品 <span class='text-danger'>*</span></label>
+				<input type="text" name='similar' class="form-control formItem">
+			</div>
+			<div class='form-group'>
+				<label>主要参数和用途 <span class='text-danger'>*</span></label>
+				<textarea name='description' class="form-control formItem"></textarea>
+			</div>
+			<button id='submitBtn' type='button' class='btn btn-primary' style='width:100%' >提交</button>
+		</form>
+		
+	</div>
+
+
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+<script type="text/javascript">
+	 $('#submitBtn').click(function(){
+	  	var rel = []; //存放表单value值
+	  	var con =['用途','类似产品','主要参数和用途']; //存放表单item项目名
+	  	var ale= []; //存放为空的表单item名
+	  	for(var i=0;i<$('.formItem').length;i++){ 
+	  		rel.push($('.formItem').eq(i).val())
+	  	}
+	  	for(var i=0;i<rel.length;i++){ //获取为空的表单item名
+	  		if( rel[i] == '' ){
+	  			ale.push( con[i] ); 
+	  		}
+	  	}
+	  	if(ale.join('/')){
+	  		alert(ale.join('/')+"不能为空！");
+	  	}else{
+	  		var r = confirm("确定要提交么？")
+	  		if( r == true ){
+
+	  			var data = $('#newProductSubmitForm').serialize(); //表单序列化
+
+	  			$.ajax({ //异步提交
+	  				url:'',
+	  				data: data,
+	  				method:'POST',
+	  				success:function(){
+
+	  				}
+	  			})
+	  			//$("#newProductSubmitForm").submit(); //普通提交
+	  		}else{
+	  			return ;
+	  		}
+	  	}
+	  	
+	  })
+</script>
+</html>

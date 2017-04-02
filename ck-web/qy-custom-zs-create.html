@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建潜在客户</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	
+	
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			padding: 0 10px;
+		    padding-bottom: 60px;
+		    padding-top: 60px;
+		    height: 100%;
+		    width: 100%;
+		    position: absolute;
+		    top: 0;
+		    box-sizing: border-box;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+
+		}
+		.swiper-container {
+		    width: 100%;
+		    height: 100%;
+		}
+		.swiper-slide {
+			overflow-y: auto;
+		}
+		.swiper-slide .form-group{
+			margin-right: 15px;
+		}
+		.next{
+			color:#999;
+			font-size: 12px;
+			text-align: center;
+		}
+		.swiperMask{
+			position: fixed;
+		    background: #fff;
+		    bottom: 50px;
+		    left: 0px;
+		    height: 35px;
+		    width: 100%;
+		    z-index: 1;
+		}
+		.swiper-pagination{
+			margin-bottom:-10px;
+		}
+		#submitBtn{
+			width:100%;
+			height:30px;
+		}
+		#submitBtn a{
+			color:#fff;
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 30px;
+			text-align: center;
+			display:block;
+			background: #173c76;
+		}
+		#navMask{
+			position:fixed;
+			left:0;
+			top:0;
+			width:100%;
+			height:100%;
+			background: rgba(0,0,0,0.4);
+			z-index: 100;
+			display:none;
+		}
+		#navWrap{
+			position:fixed;
+			left:-150px;
+			top:0;
+			height:100%;
+			background: rgba(0,0,0,0.4);
+			z-index: 100;
+		}
+		#navWrap ul{
+			padding-top:20px;
+			width:149px;
+			height:100%;
+			background: #fff;
+			border-right:1px solid #ccc;
+		}
+		#navWrap ul li{
+			width:100%;
+			line-height: 40px;
+			font-size: 14px;
+			padding: 0 10px;
+			margin-bottom:10px;
+			background: #173c76;
+			color:#fff;
+			margin-right:2px;
+			box-shadow: -2px 2px 2px #999;
+		}
+		#navHandlebar{
+			position:fixed;
+			left:0;
+			top:0;
+			height:100%;
+			width:20px;
+			z-index: 1000;
+			padding-top:200px;
+			color:#999;
+			font-size: 10px;
+
+		}
+	</style>
+</head>
+<body>
+
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+			<li><a href="#">送货地址</a></li>
+		</ul>
+	</div> -->
+	
+	<div class="main"> <!-- 主体内容 -->
+
+		<!-- <div class="title">
+			<h2>创建新客户</h2>
+		</div> -->
+
+		<!-- 客户基本信息 -->
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		    	
+		        <div class="swiper-slide"><!-- 客户基本信息 -->
+					<div class="panel panel-primary"> 
+					  <div class="panel-heading">客户基本信息</div>
+					  <div class="panel-body">
+					    <form role="form">
+			        	  <div class="form-group">
+						    <label>客户姓名</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>客户类型</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>客户分组</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+
+						  <div class="form-group">
+						  	<label>地址</label>
+						  	<div style="margin-bottom:15px">
+						  		<select id="s1" class='form-control' style='width:32%;display:inline-block;'> <option>国家 </option> </select> 
+								<select id="s2" class='form-control'  style='width:32%;display:inline-block;'> <option>省份、州 </option> </select>
+								<select id="s3" class='form-control' style='width:32%;display:inline-block;'> <option>地级市、县 </option> </select> 
+						  	</div>
+						  </div>
+						  <div class="form-group">
+						    <label>城市</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>通讯地址</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>公司联系电话</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>邮箱</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>行业</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>备注</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div>
+						  	<p class="next">右滑进入下一页</p>
+						  </div>
+						</form>
+				  	  </div>
+				    </div>
+		        </div>
+		        <div class="swiper-slide"><!-- 开票资料 -->
+		        	<div class="panel panel-primary"> 
+					  <div class="panel-heading">开票资料</div>
+					  <div class="panel-body">
+					    <form role="form">
+						  <div class="form-group">
+						    <label>开户银行所属地级城市</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>开户行</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>银行账号</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>开票地址</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>开票电话</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>税务登记号</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div>
+						  	<p class="next">右滑进入下一页</p>
+						  </div>
+						</form>
+				  	  </div>
+				    </div>
+		        </div>
+		        <div class="swiper-slide"> <!-- 增值税发票信息 -->
+		        	<div class="panel panel-primary"> 
+					  <div class="panel-heading">增值税发票信息</div>
+					  <div class="panel-body">
+					    <form role="form">
+						  <div class="form-group">
+						    <label>发票签收人</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>签收人职位</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>签收人电话号码</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>签收人传真</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>发票寄送地址</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>寄送地址邮编</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div>
+						  	<p class="next">右滑进入下一页</p>
+						  </div>
+						</form>
+				  	  </div>
+				    </div>
+		        </div>
+		        <div class="swiper-slide"> <!-- 业务信息 -->
+		        	<div class="panel panel-primary"> 
+					  <div class="panel-heading">业务信息</div>
+					  <div class="panel-body">
+					    <form role="form">
+					      <div class="form-group">
+						    <label>业务团队</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>销售区域</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>价格分组</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>客户经理</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>交易币种</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>使用税率</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>贸易条件</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>质保单</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>是否允许分批发货</label>
+						    <select class='selectUi'>
+						    	<option>001</option>
+						    	<option>002</option>
+						    	<option>003</option>
+						    </select>
+						  </div>
+						  <div class="form-group">
+						    <label>运输公差</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>发货优先级</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>客户优先级（ABC）</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div class="form-group">
+						    <label>货运代理公司</label>
+						    <input type="text" class="form-control"  placeholder="请输入姓名">
+						  </div>
+						  <div>
+						  	<p class="next">右滑进入下一页</p>
+						  </div>
+						</form>
+				  	  </div>
+				    </div>
+		        </div>
+		        <div class="swiper-slide"> <!-- 产品类别 -->
+		        	<div class="panel panel-primary"> 
+					  <div class="panel-heading">产品类别<span class='glyphicon glyphicon-plus createItem'></div>
+					  <div class="panel-body">
+					    <form role="form" class='line hideModule'>
+					    	<span class='glyphicon glyphicon-remove closeItem'></span>
+					    	<!-- 产品名称 -->
+							<div class="form-group">
+							    <label>产品名称</label>
+							    <select class="selectUi">
+							    	<option>001</option>
+							    	<option>001</option>
+							    	<option>001</option>
+							    	<option>001</option>
+							    </select>
+							</div>
+						</form><!-- 产品类别模板页 -->
+						<div>
+						  	<p class="next">右滑进入下一页</p>
+						</div>
+					  </div>
+					</div>
+		        </div>
+		        <div class="swiper-slide">
+		        	<div class="panel panel-primary">
+		        		<div class="panel-heading">证照上传</div>
+		        		<div class="panel-body">
+		        			  <div class="form-group">
+							    <label for="exampleInputFile">选择文件上传</label>
+							    <input type="file" id="exampleInputFile">
+							    <p class="help-block">请选择相应的文件进行上传.</p>
+							  </div>
+		        		</div>
+		        	</div>
+		        </div>
+		        <div class="swiper-slide"> <!-- 联系人 -->
+		        	<div class="panel panel-primary"> 
+					  <div class="panel-heading">联系人信息<span class='glyphicon glyphicon-plus' id='btnCreateContent'></div>
+					  <div class="panel-body">
+
+						<form role="form" class='line contactList ' id='contactListHide'>
+					    	<span class='glyphicon glyphicon-remove closeContact'></span>
+							<!-- 业务团队 -->
+							<div class="form-group">
+							    <label>联系人姓名</label>
+							    <input type="text" class="form-control"  placeholder="请输入联系人名称">
+							</div>
+							<div class="form-group">
+							    <label>职位</label>
+							    <input type="text" class="form-control"  placeholder="请输入职位">
+							</div>
+							<div class="form-group">
+							    <label>联系电话</label>
+							    <input type="tel" class="form-control"  placeholder="请输入联系电话">
+							</div>
+							<div class="form-group">
+							    <label>邮箱</label>
+							    <input type="email" class="form-control"  placeholder="请输入邮箱">
+							</div>
+							  
+							  
+						</form>
+							<div>
+							  	<p class="next">这是最后一页</p>
+							  	<p class="next">点击下方提交按钮完成创建</p>
+							</div>
+							
+					  </div>
+					  
+					</div>
+
+					<div id="submitBtn">
+						<a href="qy-custom-zs-details.html">提交</a>
+					</div>
+		        </div>    
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <div class="swiper-pagination" id='swiper-nav'></div>
+		    <!-- 底部遮罩 -->
+		    <div class="swiperMask"></div>
+		</div>
+
+
+		<div id="navHandlebar">
+			点击屏幕左侧边缘调出导航菜单
+		</div>
+		<div id="navMask">
+
+		</div>
+		<div id="navWrap">
+			<ul>
+				<li>客户基本信息</li>
+				<li>开票资料</li>
+				<li>增值税发票信息</li>
+				<li>业务信息</li>
+				<li>产品类别</li>
+				<li>证照上传</li>
+				<li>联系人信息</li>
+			</ul>
+		</div>
+			
+		
+
+		
+
+	</div>
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='btnFinal'>
+				完成
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a class="active" href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src='js/conmmon.js'></script>
+	<script type="text/javascript" src='js/swiper.min.js'></script>
+	<script>
+	/*swiper插件*/        
+	  var mySwiper = new Swiper ('.swiper-container', {
+	    
+	    pagination: '.swiper-pagination',
+
+	    paginationType : 'fraction',
+	    
+	    paginationClickable :true,
+	  })
+
+	/*侧边栏导航*/
+	$("#navHandlebar").click(function(){
+		$("#navMask").fadeToggle(200);
+		$(this).html("");
+		//console.log($("#navWrap").css("left") == '-150px')
+		if($("#navWrap").css("left") == '-150px'){
+			$("#navWrap").animate({'left':'0'},200)
+			
+		}else{
+			$("#navWrap").animate({"left":'-150px'},200)
+		}
+		
+	})
+	$("#navWrap").click(function(){
+		$("#navWrap").animate({"left":'-150px'},200)
+		$("#navMask").fadeOut(200)
+		$("#navHandlebar").html("点击屏幕左侧边缘调出导航菜单");
+	})
+	$("#navMask").click(function(){
+		$("#navWrap").animate({"left":'-150px'},200)
+		$("#navMask").fadeOut(200)
+		$("#navHandlebar").html("点击屏幕左侧边缘调出导航菜单");
+	})
+	/*点击事件主动出发*/
+	$("#navWrap ul li").each(function(index,item){
+		$(item).click(function(){
+			$('#swiper-nav span').eq(index).trigger('click');
+		})
+		
+	})
+	/*完成按钮*/
+	$('#btnFinal').click(function(){
+		window.location.href='qy-custom-zs-details.html';
+	})
+
+  </script>
+</body>
+</html>

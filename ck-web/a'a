@@ -1,0 +1,64 @@
+ 
+var mail={ 
+//初始化 
+init:{ 
+//初始化数据 
+initdata:{ 
+did:'', 
+ttitle:'', 
+sendpassword:'', 
+description:'' 
+}, 
+//初始化事件 
+initevent:{ 
+DataEvent:function(){ 
+$("#did").unbind("change");//获取一级菜单，绑定事件 
+$("#did").bind("change",function(){ 
+//alert($(this).val()); 
+mail.init.initdata.did=$(this).val(); 
+//alert(mail.init.initdata.did); 
+mail.init.initevent.getuser(); 
+}); 
+}, 
+<span style="color:#ff0000;">getuser:function(){ 
+$.post("mailAction_showUsers?did="+mail.init.initdata.did,null,function(data){ 
+var uidoption=$("#uid") ;//获取二级菜单 
+uidoption.empty();//将列表清空 
+for(var i=0;i<data.users.length;i++){ 
+//向里面填充option，通过循环 
+uidoption.append("<option value="+data.users[i].uid+ " >"+data.users[i].username+"</option>" ); 
+} 
+});</span> 
+}, 
+submitCheck:function(){ 
+$("#send").unbind("click"); 
+$("#send").bind("click",function(){ 
+mail.init.initdata.description=$("input[type='textarea']").text(); 
+mail.init.initdata.sendpassword=$("input[name='sendpassword']").val(); 
+mail.init.initdata.ttitle=$("input[name='ttitle']").val(); 
+
+if(mail.init.initdata.sendpassword==""){ 
+alert("请输入密码!"); 
+return false; 
+} 
+else if(mail.init.initdata.ttitle==""){ 
+alert("请输入主题！"); 
+return false ; 
+} 
+else if(mail.init.initdata.description==""){ 
+alert("请输入内容！"); 
+return false; 
+} 
+else 
+return true; 
+}); 
+} 
+} 
+} 
+} 
+
+$().ready(function(){ 
+mail.init.initevent.DataEvent(); 
+mail.init.initevent.submitCheck(); 
+
+}); 

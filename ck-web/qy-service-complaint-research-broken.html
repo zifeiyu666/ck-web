@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main">
+
+		<div>
+			<!-- 调查单详情 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查单详情
+			  </div>
+			  <div class="panel-body">
+		  		<div class=" item">
+		    		投诉单号：<span>123346546135131</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉状态：<span>。。。</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户代码：<span>......</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉类型：<span>正式投诉</span>
+		    	</div>
+		    	<div class=" item">
+		    		运输方式：<span>海运</span>
+		    	</div>
+		    	<div class=" item">
+		    		提交时间：<span>2016-10-12</span>
+		    	</div>
+		    	<div class=" item">
+		    		确认时间：<span>2017-1-2</span>
+		    	</div>
+			  </div>
+			</div>
+			<!-- 调查内容 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查内容
+			  	<button class="btn btn-primary btn-xs pull-right" id='btn01'>编辑</button>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="line">
+			  		<div class=" item">
+			    		填写人：<span>123346546135131</span>
+			    	</div>
+			    	<div class=" item">
+			    		填写日期：<span>2016-6-12</span>
+			    	</div>
+			    	<div class=" item">
+			    		填写时间：<span>10：23</span>
+			    	</div>
+			    	<div class=" item">
+			    		调查内容：
+			    		<div class='bor pad' style='color:#333'> 
+			    			这里是调查内容这里是调查内容这里是调查内容这里是调查内容
+			    		</div>
+			    	</div>
+			  	</div>
+		    	<div class=" item marginTop">
+		    		附件：<span>。。。。</span>
+		    		<button class="btn btn-primary btn-xs pull-right">查看</button>
+		    	</div>
+			  </div>
+			</div>
+			<!-- 调查结论 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查结论
+			  	<button class="btn btn-primary btn-xs pull-right" id='btn02'>编辑</button>
+			  </div>
+			  <div class="panel-body">
+		  		<div class=" item">
+		    		调查结论：<span>。。。</span>
+		    	</div>
+		    	<div class=" item">
+		    		附件：<span>。。。。</span>
+		    		<button class="btn btn-primary btn-xs pull-right">查看</button>
+		    	</div>
+		    	<div class=" item">
+		    		是否赛科方责任：<span>否</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉类型分支：<span>。。。</span>
+		    	</div>
+			  </div>
+			</div>
+			<!-- 纠正与预防措施 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	纠正与预防措施
+			  	<button class="btn btn-primary btn-xs pull-right" id='btn03'>编辑</button>
+			  </div>
+			  <div class="panel-body">
+		  		<div class=" item">
+		    		纠正与预防措施：<span>。。。</span>
+		    	</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 调查内容编辑 -->
+	<div class="modalModule" id='modal1'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>调查内容编辑</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">调查内容</div>
+		  <div class="panel-body">
+			<!-- 调查单详情 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查单详情
+			  </div>
+			  <div class="panel-body">
+		  		<div class=" item">
+		    		投诉单号：<span>123346546135131</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉状态：<span>。。。</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户代码：<span>......</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉类型：<span>正式投诉</span>
+		    	</div>
+		    	<div class=" item">
+		    		运输方式：<span>海运</span>
+		    	</div>
+		    	<div class=" item">
+		    		提交时间：<span>2016-10-12</span>
+		    	</div>
+		    	<div class=" item">
+		    		确认时间：<span>2017-1-2</span>
+		    	</div>
+			  </div>
+			</div>
+			<!-- 调查内容 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查内容
+			  </div>
+			  <div class="panel-body">
+			  	<form class="line">
+			    	<div class="from-group item">
+			    		<label>调查内容：</label>
+			    		<textarea class="form-control"></textarea>
+			    	</div>
+			    	<div class=" item marginTop">
+			    		相关图片：
+			    		<input type="file" class="form-control">
+			    	</div>
+			  	</form>
+
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<button class="btn btn-primary form-control searchBtn">
+			完成
+		</button>
+	</div>
+	<!-- 调查结论编辑 -->
+	<div class="modalModule" id='modal2'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>调查结论编辑</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">调查结论</div>
+		  <div class="panel-body">
+			<!-- 调查单详情 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查单详情
+			  </div>
+			  <div class="panel-body">
+		  		<div class=" item">
+		    		投诉单号：<span>123346546135131</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉状态：<span>。。。</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户代码：<span>......</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉类型：<span>正式投诉</span>
+		    	</div>
+		    	<div class=" item">
+		    		运输方式：<span>海运</span>
+		    	</div>
+		    	<div class=" item">
+		    		提交时间：<span>2016-10-12</span>
+		    	</div>
+		    	<div class=" item">
+		    		确认时间：<span>2017-1-2</span>
+		    	</div>
+			  </div>
+			</div>
+			<!-- 调查结论 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查结论
+			  </div>
+			  <div class="panel-body">
+			  	<form class="line">
+			    	<div class="from-group item">
+			    		<label>调查结论：</label>
+			    		<textarea class="form-control"></textarea>
+			    	</div>
+			    	<div class=" item marginTop">
+			    		相关图片：
+			    		<input type="file" class="form-control">
+			    	</div>
+			    	<div class="from-group item">
+			    		<label>更改投诉类型</label>
+			    		<select class='form-control'>
+			    			<option>仓库</option>
+			    			<option>物流</option>
+			    		</select>
+			    	</div>
+			    	<div class="from-group item">
+			    		<label>是否赛科方责任</label>
+			    		<select class='form-control' id='sel01'>
+			    			<option>是</option>
+			    			<option>否</option>
+			    		</select>
+			    	</div>
+			    	<div class="from-group item" id='sel02'>
+			    		<label>投诉类型分支</label>
+			    		<select class='form-control'>
+			    			<option>服务</option>
+			    			<option>质量</option>
+			    			<option>...</option>
+			    		</select>
+			    	</div>
+			  	</form>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<button class="btn btn-primary form-control searchBtn">
+			完成
+		</button>
+	</div>
+	<!-- 纠正与预防措施编辑 -->
+	<div class="modalModule" id='modal3'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>纠正与预防措施编辑</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">纠正与预防措施</div>
+		  <div class="panel-body">
+			<!-- 调查单详情 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	调查单详情
+			  </div>
+			  <div class="panel-body">
+		  		<div class=" item">
+		    		投诉单号：<span>123346546135131</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉状态：<span>。。。</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户代码：<span>......</span>
+		    	</div>
+		    	<div class=" item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	<div class=" item">
+		    		投诉类型：<span>正式投诉</span>
+		    	</div>
+		    	<div class=" item">
+		    		运输方式：<span>海运</span>
+		    	</div>
+		    	<div class=" item">
+		    		提交时间：<span>2016-10-12</span>
+		    	</div>
+		    	<div class=" item">
+		    		确认时间：<span>2017-1-2</span>
+		    	</div>
+			  </div>
+			</div>
+
+			<form class="line">
+		    	<div class="from-group item">
+		    		<label>纠正与预防措施：</label>
+		    		<textarea class="form-control"></textarea>
+		    	</div>
+		  	</form>
+		  </div>
+		</div>
+
+		<button class="btn btn-primary form-control searchBtn">
+			完成
+		</button>
+	</div>
+
+
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" >
+				提交
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+fnModal('btn01','modal1');
+fnModal('btn02','modal2');
+fnModal('btn03','modal3');
+
+
+$('#sel01').change(function(){
+	var txt = $("#sel01 option:selected").text();
+	if(txt == '是')
+	{
+		$('#sel02').css('display','block');
+	}else if(txt == '否')
+	{
+		$('#sel02').css('display','none');
+	}
+})
+
+</script>
+</html>

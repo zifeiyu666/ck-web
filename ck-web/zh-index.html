@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+</head>
+<style type="text/css">
+ul,li{
+	margin:0;
+	padding:0;
+	list-style: none;
+}	
+	.banner{
+		margin:0 auto;
+		width:1600px;
+	}
+	.header{
+		height: 100px;
+		position: absolute;
+		width:100%;
+		top:0;
+		left:0;
+	}
+	.header .nav{
+		width:90%;
+		margin:0 auto;
+		position:relative;
+		height:100px;
+	}
+	.header .lnav li{
+		float:left;
+		margin-left: 20px;
+		margin-right: 20px;
+		font-family: "微软雅黑";
+		font-size: 18px;
+		font-weight: bold;
+		padding-bottom: 8px;
+	}
+	.header .lnav{
+		position:absolute;
+		right:0px;
+		bottom:3px;
+	}
+	.header .nav .logo{
+		position:absolute;
+		left:0;
+		margin-top:5px;
+	}
+	.header .nav .language{
+		position: absolute;
+		right:120px;
+		bottom:10px;
+		color:#183d74;
+		font-family: "微软雅黑";
+	}
+	.header .nav .touxiang{
+		position: absolute;
+		right:240px;
+		bottom:10px;
+		font-family: "微软雅黑";
+	}
+	.wrap{
+		height:100%;
+		margin:0 auto;
+		margin-top:100px;
+		width:100%;
+		overflow: hidden;
+		z-index: 1000;
+		position:relative;
+		padding-bottom:20px;
+	}
+	.wrap .module{
+		width:90%;
+		min-width: 900px;
+		margin:0 auto;
+		margin-top:20px;
+	}
+	.wrap .module li{
+		float:left;
+		margin-bottom:5px;
+		width:16.666%;
+		z-index: 0;
+	}
+	.wrap .module li:hover{
+		box-shadow: 0px 0px 4px 1px #000;
+		z-index:10;
+		position:relative;
+		top:-3px;
+	}
+	.wrap .module li a{
+		display:inline-block;
+		width:100%;
+		padding-left:10px;
+		padding-top:25px;
+		padding-bottom:25px;
+		font-size:20px;
+		font-weight: bold;
+		font-family: '微软雅黑';
+		color:#fff;
+		text-decoration: none;
+		text-align: center;
+	}
+	.wrap .module li:nth-of-type(2n-1) a{
+		background: #183d74;
+	}
+	.wrap .module li:nth-of-type(2n) a{
+		background: #687073;
+	}
+	.wrap .module li a img{
+		display:inline-block;
+		height:60px;
+		margin-right:20px;
+	}
+	.myHide{
+		display:none;
+	}
+</style>
+<body>
+	<div class="header">
+		
+		<div class="nav">
+			<div class="logo"><img width=200 src="../images/base/logo.jpg"></div>
+			
+			<div class="touxiang">
+				<img width=25 src="../images/base/touxiang.jpg">
+				个人中心
+				<div class="userWrap" style="position:absolute;padding: 10px;left:0px;top:25px;background: #fff;border:1px solid #ccc;text-align: left;box-shadow: 1px 0px 6px #ccc;display:none;z-index: 1000000;width:120px;text-align: left">
+				<div>
+					<span>用户名：</span>张三
+				</div>
+				<div>
+					<span>角色：</span>xxx
+				</div>
+				<div>
+					<span>所属单位：</span>xxx
+				</div>
+				<div>
+					<a>注销</a>
+				</div>
+			</div>
+			</div>
+			
+			<script type="text/javascript">
+				$(".touxiang").mouseover(function(){
+					$(".userWrap").css({"display":"block"})
+				}).mouseout(function(){
+					$(".userWrap").css({"display":"none"})
+				})
+			</script>
+			<div class="language ch">
+				<img width=25 src="../images/base/language.jpg">
+				简体中文
+			</div>
+			<div class="language en myHide">
+				<img width=25 src="../images/base/en.png">
+				English&nbsp;&nbsp;
+			</div>
+			<ul class='lnav'>
+				<li>联系我们</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="banner" >
+			<img width=1600 src="../images/base/banner.jpg">
+		</div>
+		<div class="module">
+			<ul>
+				<li><a href="zh-market-notice.html"><img src="../images/base/dy.png" alt="">市场调研</a></li>
+				<li><a href="zh-market-faq-look.html"><img src="../images/base/bf.png" alt="">共性问题</a></li>
+				<li><a href="zh-market-newProduct-submit.html"><img src="../images/base/xp.png" alt="">新品需求</a></li>
+				<li><a href="zh-sales-contract.html"><img src="../images/base/ht.png" alt="">合同</a></li>
+				<li><a href="zh-sales-needSubmit-list.html"><img src="../images/base/jh.png" alt="">需求计划</a></li>
+				<li><a href="zh-sales-order.html"><img src="../images/base/dd.png" alt="">订单</a></li>
+				<li><a href="zh-service-complaint-list.html"><img src="../images/base/ts.png" alt="">投诉单</a></li>
+				<li><a href="zh-service-information-consultationSubmit.html"><img src="../images/base/zx.png" alt="">信息交互</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+</body>
+<script>
+	$('.language').click(function(){
+		$(this).hide().siblings('.language').show();
+	})
+</script>
+</html>

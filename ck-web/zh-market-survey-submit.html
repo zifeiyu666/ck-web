@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>市场调研问卷提交</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script scr='js/json2.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<style type="text/css">
+
+	.list{
+		margin:20px 10px 20px 10px ;
+	}
+	.item_disabled{
+		padding-bottom:6px;
+		font-weight: normal;
+		color:#666;
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.item_disabled span{
+		font-weight: bold;
+		font-size: 14px;
+		text-align: left;
+	}
+
+	.well:hover a{
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 20px;
+	}
+	.checkbox label{
+		margin-right:20px;
+	}
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html" >市场</a></li>
+			<li><a href="zh-market-faq-look.html" class='active'>消息中心</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>	
+		</ul>
+	</div>
+
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="zh-market-faq-look.html">市场调研问卷填写</a></li>
+		</ul>
+		<div class="panel panel-default" style='margin-top:10px'>
+			<div class="panel-heading" style='text-align: center'>
+				调查问卷标题
+			</div>
+			<div class="panel-body">
+				<form action="#" id='surveyForm'>
+					<!-- <div class="well clearfix">
+						<span class='pull-left'>1.</span>
+						<div class="col-xs-11">
+							<h5 style='font-weight: bold; line-height: 30px'><span>Q:&nbsp;</span>都提供那些运输方式？</h5>
+							<div class="checkbox">
+							    <label>
+							      <input type="radio" name='travel' checked> 海运
+							    </label>
+							    <label>
+							      <input type="radio" name='travel'> 陆运
+							    </label>
+							</div>
+						</div>
+					</div>
+					<div class='well clearfix'>
+						<span class='pull-left'>2.</span>
+						<div class='col-xs-11'>
+							<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>希望塞克提供哪些服务？</h5>
+							<div class='checkbox'>
+							    <label>
+							      <input type='checkbox' name='server' checked> 市场信息共享
+							    </label>
+							    <label>
+							      <input type='checkbox' name='server'> 实时提报需求
+							    </label>
+							    <label>
+							      <input type='checkbox' name='server'> 通知物流状态
+							    </label>
+							    <label>
+							      <input type='checkbox' name='server'> 多地址配送
+							    </label>
+							</div>
+						</div>
+					</div>
+					<div class="well clearfix">
+						<span class='pull-left'>3.</span>
+						<div class="col-xs-11">
+							<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>您未来希望与赛科签订哪种合同？</h5>
+							<input type="text" class="form-control formItem">
+						</div>
+					</div>
+					<div class="well clearfix">
+						<span class='pull-left'>4.</span>
+						<div class="col-xs-11">
+							<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>您对赛科的信息共享方面还有哪些需求？</h5>
+							<textarea class='form-control formItem'></textarea>
+						</div>
+					</div> -->
+					<div id="survey">
+						
+					</div>
+					<div class="col-xs-6">
+						<button type='reset' class='btn btn-primary '  style='width:100%'>重置</button>
+					</div>
+					<div class="col-xs-6">
+						<button id='submitBtn' type='button' class='btn btn-primary' style='width:100%'>提交</button>
+					</div>
+					
+					
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+<script>
+var questionList=[]; //保存后台传入的数据
+$(function(){
+	var typeModule=""; //HTML结构模板
+	$.ajax({
+		url:'question.json',
+		type:'GET',
+		success:function(data,textStatus){
+			$.extend(questionList,data);
+			for(var i=0;i<questionList.length;i++){
+				if(questionList[i].qtype == 1){
+					var ades = "";
+					for(var j =0 ;j<questionList[i].alist.length;j++){
+						ades += "<label>\
+					      <input type='checkbox' name="+questionList[i].qid+" id="+questionList[i].alist[j].aid+"  value="+questionList[i].alist[j].ades+" >"+questionList[i].alist[j].ades+"\
+					    </label>";
+
+					}
+					typeModule = "<div class='well clearfix'>\
+						<span class='pull-left'>"+
+						parseInt(questionList[i].qid)
+						+".</span>\
+						<div class='col-xs-11'>\
+							<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>"+
+							questionList[i].qdes
+							+"</h5>\
+							<div class='checkbox'>\
+							"+
+								ades
+							+"\
+							</div>\
+						</div>\
+					</div>"
+					$(typeModule).appendTo('#survey'); //插入问题
+				}else if(questionList[i].qtype == 2){
+					var ades = "";
+					for(var j =0 ;j<questionList[i].alist.length;j++){
+						ades += "<label>\
+					      <input type='radio' name="+questionList[i].qid+" id="+questionList[i].alist[j].aid+"  value="+questionList[i].alist[j].ades+" >"+questionList[i].alist[j].ades+"\
+					    </label>";
+					}
+					typeModule = "<div class='well clearfix'>\
+						<span class='pull-left'>"+
+						parseInt(questionList[i].qid)
+						+".</span>\
+						<div class='col-xs-11'>\
+							<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>"+
+							questionList[i].qdes
+							+"</h5>\
+							<div class='checkbox'>\
+							"+
+								ades
+							+"\
+							</div>\
+						</div>\
+					</div>"
+					$(typeModule).appendTo('#survey'); //插入问题
+				}else if(questionList[i].qtype == 3){
+					var ades = "";
+					for(var j =0 ;j<questionList[i].alist.length;j++){
+						ades += 
+					    "<input type='text' name="+questionList[i].qid+" id="+questionList[i].alist[j].aid+" class='form-control formItem'>"
+					}
+					typeModule = "<div class='well clearfix'>\
+						<span class='pull-left'>"+
+						parseInt(questionList[i].qid)
+						+".</span>\
+						<div class='col-xs-11'>\
+							<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>"+
+							questionList[i].qdes
+							+"</h5>\
+							<div class='checkbox'>\
+							"+
+								ades
+							+"\
+							</div>\
+						</div>\
+					</div>"
+					$(typeModule).appendTo('#survey'); //插入问题
+				}
+
+			}
+
+		}
+
+	})
+})
+
+
+
+$(function(){
+	$('#submitBtn').click(function(){
+	  	var con =['第三题','第四题']; //存放表单item项目名
+	  	var ale= []; //存放为空的表单item名
+	  	for(var i=0;i<$('.formItem').length;i++){
+	  		if($('.formItem').eq(i).val() == ''){
+	  			console.log($('.formItem').eq(i).parent().parent().parent().find('span.pull-left').html())
+	  			ale.push($('.formItem').eq(i).parent().parent().parent().find('span.pull-left').html()); 
+	  		}
+	  		
+	  	}
+
+	  	if(ale.join('/')){
+	  		alert(ale.join('/')+"题还未作答，请完成作答后提交！");
+	  	}else{
+	  		var r = confirm("确定要提交么？")
+	  		if( r == true ){
+
+	  			var list=[]; //提交数据
+	  			for(var i=0;i<questionList.length;i++){
+
+	  					if(questionList[i].qtype==3){ //文本框提交
+
+	  						list.push({"ZID":questionList[i].qid,"QID":questionList[i].qid,"QTYPE":questionList[i].qtype,"QDES":questionList[i].qdes,"AID":0000000001,"ADES":$('.well').eq(i).find('.checkbox input').val()})
+	  					}else if(questionList[i].qtype==1){ //多选提交
+	  						console.log($('.well').eq(i).find(' input:checked').length)
+	  						for(var j=0; j<$('.well').eq(i).find(' input:checked').length; j++){
+
+	  							list.push({"ZID":questionList[i].qid,"QID":questionList[i].qid,"QTYPE":questionList[i].qtype,"QDES":questionList[i].qdes,"AID":$('.well').eq(i).find('input:checked').eq(j).attr('id'),"ADES":$('.well').eq(i).find('input:checked').eq(j).val()})
+	  						}
+	  					}else if(questionList[i].qtype==2){ //单选提交
+	  						list.push({"ZID":questionList[i].qid,"QID":questionList[i].qid,"QTYPE":questionList[i].qtype,"QDES":questionList[i].qdes,"AID":$('.well').eq(i).find('.checkbox input:checked').attr('id'),"ADES":$('.well').eq(i).find('.checkbox input:checked').val()})
+	  					}
+
+	  				
+	  			}
+	  			
+	  			console.log(JSON.stringify(list)); //json转字符串
+
+	  			$.ajax({ //异步提交
+	  				url:'#',
+	  				type:'POST',
+	  				data: JSON.stringify(list),
+	  				method:'POST',
+	  				success:function(){
+
+	  				}
+	  			})
+
+	  		}else{
+	  			return ;
+	  		}
+	  	}
+	  	
+	  })
+})
+	
+</script>
+</html>

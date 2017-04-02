@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main">
+
+		<div>
+			<!-- 理赔信息 -->
+			<div class="panel panel-primary"> 
+			  <div class="panel-heading clearfix">
+			  	理赔信息
+			  </div>
+			  <div class="panel-body">
+			  	<div class="row line">
+			  		<div class="col-xs-12 item">
+			    		投诉单号：<span>123346546135131</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		投诉状态：<span>。。。</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		客户代码：<span>......</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		客户姓名：<span>张三</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		投诉类别：<span>质量</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		投诉类型：<span>。。。</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		行动项：<span>。。。</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		理赔单状态：<span>。。。</span>
+			    	</div>
+			    </div>
+			    <div class="row line">
+			    	<div class="col-xs-12 item">
+			    		理赔方式：<span>贷记凭证</span>
+			    		<button class="btn btn-primary btn-xs pull-right" id='btnEdit'>编辑</button>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		赔偿含税金额：<span>。。。</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		订单号：<span>131456435</span>
+			    	</div>
+			    	<div class="col-xs-12 item">
+			    		货记凭证号：<span>131456435</span>
+			    	</div>
+			    </div>  
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modalModule" id='modalEdit'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>理赔信息编辑</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">理赔信息</div>
+		  <div class="panel-body">
+			<div class="row line">
+		  		<div class="col-xs-12 item">
+		    		投诉单号：<span>123346546135131</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		投诉状态：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户代码：<span>......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		投诉类别：<span>质量</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		投诉类型：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		行动项：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		理赔单状态：<span>。。。</span>
+		    	</div>
+		    </div>
+		    <div class="row line">
+		    	<form class="col-xs-12 ">
+		    		<div class="form-group">
+		    			<label>理赔方式</label>
+			    		<select class='form-control'>
+			    			<option>贷记凭证</option>
+			    			<option>免费发货</option>
+			    			<option>退货</option>
+			    		</select>
+		    		</div>
+		    	</form>
+		    </div>
+		  </div>
+		</div>
+
+		<button class="btn btn-primary form-control searchBtn">
+			下一步
+		</button>
+	</div>
+
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" >
+				下一步
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+fnModal('btnEdit','modalEdit');
+</script>
+</html>

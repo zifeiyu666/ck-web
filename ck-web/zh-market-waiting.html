@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>共性问题查看</title>
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" href="css/bootstrap-duallistbox.min.css">
+	<script src="js/jquery.bootstrap-duallistbox.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var demo2 = $('.demo1').bootstrapDualListbox({
+                nonSelectedListLabel: '客户列表',
+                selectedListLabel: '已选客户',
+                preserveSelectionOnMove: 'moved',
+                moveOnSelect: false,
+                infoTextEmpty:'选择为空',
+                infoText:'共有{0}项',
+                filterPlaceHolder:'搜索',
+                filterTextClear:'显示所有',
+                infoTextFiltered:'从 {1}项中共找到<span class="label label-warning">{0}个结果</span>  '
+            });
+
+        });
+    </script>
+
+</head>
+<style type="text/css">
+
+	.list{
+		margin:20px 10px 20px 10px ;
+	}
+	.item_disabled{
+		padding-bottom:6px;
+		font-weight: normal;
+		color:#666;
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.item_disabled span{
+		font-weight: bold;
+		font-size: 14px;
+		text-align: left;
+	}
+
+	.well:hover a{
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 20px;
+	}
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html"  class='active'>市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>	
+		</ul> 
+	</div>
+
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="zh-market-survey-list.html">市场调研</a></li>
+		  <li role="presentation"><a href="zh-market-faq-look.html">共性问题</a></li>
+		  <li role="presentation"><a href="zh-market-newProduct-submit.html">新产品需求</a></li>
+		  <li role="presentation" class="active"><a href="zh-market-newProduct-submit.html">市场研究报告发布</a></li>
+		</ul>
+	</div>
+
+	<div class="wrap">
+		<form id='newProductSubmitForm' action="" style='margin-top:20px'>
+			<div class='form-group'>
+				<label>市场信息标题 <span class='text-danger'>*</span></label>
+				<input type="text" name='' class="form-control formItem">
+			</div>
+			<div class='form-group'>
+				<label>市场信息描述 <span class='text-danger'>*</span></label>
+				<textarea name="" class='form-control'></textarea>
+			</div>
+			<div class='form-group'>
+				<label>附件 <span class='text-danger'>*</span></label>
+				<input type="file" class='form-control'>
+			</div>
+			<div class="form-group">
+				<label style='display:block' for="dtp_input1" >发布时间设定 <span class='text-danger'>*</span></label>
+                <div class="input-group date form_datetime col-md-4" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+				<input type="hidden" id="dtp_input1" value="" /><br/>
+
+			</div>
+
+			<button type='button' class='btn btn-primary' data-toggle="modal" data-target="#myModal01">关联客户</button>
+			<button type='button' class='btn btn-primary'  data-toggle="modal" data-target="#myModal02">消息推送</button>
+			<button id='submitBtn' type='button' class='btn btn-primary'>保存</button>
+
+		</form>
+		
+		
+	</div>
+
+
+	<!-- 关联客户 -->
+	<div class="modal fade" id="myModal01" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">关联客户</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div>
+		        <select multiple="multiple" size="10" name="duallistbox_demo1" class="demo1" >
+		            <option value="1">
+		            	编号：001&nbsp;&nbsp;姓名：张三
+		            </option>
+		            <option value="2">编号：002&nbsp;&nbsp;姓名：张三</option>
+		            <option value="3">编号：003&nbsp;&nbsp;姓名：张三</option>
+		            <option value="4">编号：004&nbsp;&nbsp;姓名：张三</option>
+		            <option value="5">编号：005&nbsp;&nbsp;姓名：张三</option>
+		            <option value="6">编号：006&nbsp;&nbsp;姓名：张三</option>
+		            <option value="7">编号：007&nbsp;&nbsp;姓名：张三</option>
+		            <option value="8">编号：008&nbsp;&nbsp;姓名：张三</option>
+		            <option value="9">编号：009&nbsp;&nbsp;姓名：张三</option>
+		            <option value="10">编号：010&nbsp;&nbsp;姓名：张三</option>
+		        </select>
+		    </div>
+	      </div>	
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary">确认</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- 消息推送 -->
+	<div class="modal fade" id="myModal02" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class='form-group'>
+				<label>推送内容 <span class='text-danger'>*</span></label>
+				<textarea name="" class='form-control'></textarea>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary">确认</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</body>
+<script src='js/bootstrap-datetimepicker.min.js'></script>
+<script src='js/bootstrap-datetimepicker.zh-CN.js'></script>
+
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+
+<script type="text/javascript">
+$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+
+</script> 
+
+</html>

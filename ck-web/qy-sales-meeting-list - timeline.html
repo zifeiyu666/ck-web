@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="css/timeline.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:20%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+		.inputSearch{
+			width:100%;
+			margin-top:20px;
+		}
+		#zsSearchWrap{
+			position:relative;
+		}
+		#zsSearchWrap span{
+			position:absolute;
+			right:6px;
+			top:25px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="qy-sales-contract.html">合同</a></li>
+			<li><a href="">需求计划</a></li>
+			<li><a href="" >订单</a></li>
+			<li><a href="qy-sales-transport.html" >物流</a></li>
+			<li><a href="" class="active">拜访计划</a></li>
+		</ul>
+	</div>
+	<div class="main"> <!-- 主体内容 -->
+		
+		<!-- <div class="panel panel-primary hidden">
+			<div class="panel-heading">
+				拜访活动
+			</div>
+		</div> -->
+		<ul class="nav nav-tabs" style='margin-top:20px' id='navBar'>
+		  <li role="presentation" class="active" name='#oneWeek'><a href="#">一周内</a></li>
+		  <li role="presentation" name='#oneMonth'><a href="#">一个月内</a></li>
+		  <li role="presentation" name='#oneMonthLater'><a href="#">一个月后</a></li>
+		</ul>
+
+		<div class="htmleaf-container" id='oneWeek'>
+			<div>
+				<div id="timeline">
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class='glyphicon glyphicon-time'></span>
+						</div>
+						<div class="timeline-content">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								  </div>
+							</p>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class="glyphicon glyphicon-time">	</span>
+						</div>
+						<div class="timeline-content right">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								  </div>
+							</p>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class='glyphicon glyphicon-time'></span>
+						</div>
+						<div class="timeline-content">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="htmleaf-container" id='oneMonth' style='display:none'>
+			<div>
+				<div id="timeline">
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class='glyphicon glyphicon-time'></span>
+						</div>
+						<div class="timeline-content">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								  </div>
+							</p>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class="glyphicon glyphicon-time">	</span>
+						</div>
+						<div class="timeline-content right">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								  </div>
+							</p>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class='glyphicon glyphicon-time'></span>
+						</div>
+						<div class="timeline-content">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="htmleaf-container" id='oneMonthLater'  style='display:none'>
+			<div>
+				<div id="timeline">
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class='glyphicon glyphicon-time'></span>
+						</div>
+						<div class="timeline-content">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								  </div>
+							</p>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class="glyphicon glyphicon-time">	</span>
+						</div>
+						<div class="timeline-content right">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								  </div>
+							</p>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-icon">
+							<span class='glyphicon glyphicon-time'></span>
+						</div>
+						<div class="timeline-content">
+							<h2>2016.2.12</h2>
+							<p>
+								<div class="panel-body">
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访目的：<span>。。。。。</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访客户：<span>。。。</span></div>
+								    </div>
+								    <div class="row">
+								    	<div class="col-xs-12 col-sm-12">拜访开始时间：<span>2016-6-12</span></div>
+								    	<div class="col-xs-12 col-sm-12">拜访结束时间：<span>2017-6-12</span></div>
+								    </div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		</div> <!-- 潜在客户列表结束 -->
+		
+		<!-- 搜索按钮 -->
+		<span class="glyphicon glyphicon-search searchIcon hidden" id='searchBtn'>
+			搜索
+		</span>
+
+	</div> <!-- 主题内容结束 -->
+
+	<!-- 搜索modal -->
+	<div class="modalModule" id='modal1'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>拜访活动搜索</h1>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				请输入检索条件
+			</div>
+			<div class="panel-body">
+				<form action="" id=''>
+					<div class="form-group">
+					    <label>拜访开始时间</label>
+					    <input type="date" name='manager_name' class="form-control">
+					</div>
+					<div class="form-group">
+					    <label>拜访结束时间</label>
+					    <input type="date" name='manager_name' class="form-control">
+					</div>
+				</form>
+			</div>
+		</div>
+		<button class="btn btn-primary form-control searchBtn ">
+			查询
+		</button>
+	</div>
+	
+	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList searchIcon1" >
+				查询订单
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a class="active" href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	
+
+	fnModal('searchBtn','modal1');
+
+	$("#navBar li").click(function(){
+		$(this).addClass('active').siblings('li').removeClass('active');
+
+		$('.htmleaf-container').eq($(this).index()).show().siblings('.htmleaf-container').hide()
+	})
+</script>
+</html>

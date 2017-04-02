@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:50%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="qy-custom-qz-list.html" class="active">潜在客户</a></li>
+			<li><a href="qy-custom-zs-list.html">正式客户</a></li>
+		</ul>
+	</div>
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 潜在客户列表 -->
+			<h2>潜在客户列表</h2>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">潜在客户1</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">产品编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">数量：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">潜在客户2</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">产品编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">数量：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">潜在客户3</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">产品编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">数量：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">潜在客户4</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">产品编号：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">数量：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div> <!-- 潜在客户列表结束 -->
+		
+		
+
+	</div> <!-- 主题内容结束 -->
+	
+	
+	<!-- 搜索按钮 -->
+	<span class="glyphicon glyphicon-search searchIcon" id='searchModalBtn'>
+		搜索
+	</span>
+	<!-- 搜索modal -->
+	<div class="modalModule" id='searchModal'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>潜在客户搜索</h1>
+		</div>
+		<div class="panel panel-primary"> <!-- 客户基本信息 -->
+		  <div class="panel-heading">客户基本信息</div>
+		  <div class="panel-body">
+		    <form role="form">
+
+			  <div class="form-group">
+			    <label>客户姓名</label>
+			    <input type="text" class="form-control"  placeholder="请输入姓名">
+			  </div>
+
+			  <div class="form-group">
+			    <label>城市</label>
+			    <input type="text" class="form-control"  placeholder="请输入城市">
+			  </div>
+
+			  <div class="form-group">
+			    <label>业务团队</label>
+			    <select class='select2'  id='teamSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    	<option>003</option>
+			    	<option>005</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>销售区域</label>
+			    <select class='select2'  id='saleSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    	<option>003</option>
+			    	<option>005</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>客户经理</label>
+			    <select class='select2' multiple="multiple" id='contactSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    	<option>003</option>
+			    	<option>005</option>
+			    </select>
+			  </div>
+			 
+			</form>
+		  </div>
+		</div> <!-- 客户基本信息结束 -->
+		<!-- btn -->
+
+			<button class="btn btn-primary form-control searchBtn">
+				查询
+			</button>
+	</div>
+
+	
+	
+	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='CreateCustom'>
+				建立新客户
+			</button>
+		</div>
+	</div>
+
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a class="active" href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	$('.customList').on('click',function(){
+		window.location.href='qy-custom-qz-details.html';
+	})
+	$('#CreateCustom').on('click',function(){
+		window.location.href='qy-custom-qz-create.html';
+	})
+	/*搜索模态框*/
+	fnModal('searchModalBtn','searchModal');
+
+</script>
+</html>

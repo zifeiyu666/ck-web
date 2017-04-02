@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-editable.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table-editable.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>remove</h1>
+        <p>
+            Remove data from table, the params contains two properties:<br>
+            field: the field name of remove rows.<br>
+            values: the array of values for rows which should be removed.<br>
+            <code>$table.bootstrapTable('remove', {field: 'id', values: ids});</code>
+        </p>
+        <div id="toolbar">
+            <button id="button" class="btn btn-default">remove</button>
+        </div>
+        <table id="table"
+               data-toggle="table"
+               data-toolbar="#toolbar"
+               data-height="428"
+               data-url="data1.json">
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+<script>
+    var $table = $('#table'),
+        $button = $('#button');
+    $(function () {
+        $button.click(function () {
+            var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.id;
+            });
+            $table.bootstrapTable('remove', {
+                field: 'id',
+                values: ids
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/conmmon.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:20%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+			<li><a href="#">送货地址</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 客户信息详情 -->
+			<h2>订单信息详情</h2>
+		</div>
+		<!-- 客户基本信息 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单基本信息</div>
+		  <div class="panel-body">
+		  	<div class="row">
+		  		<div class="col-xs-12 item">
+		    		客户编号：<span>123</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		付款条件：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		送达方：<span>......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		运输方式：<span>海运</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		合同编号：<span>123456</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		销售计划：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		订单类型：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户采购号：<span>123456</span>
+		    	</div>
+		    	<div class="col-xs-12 item hidden">
+		    		前置订单号：<span>123456</span>
+		    	</div>
+		    	<div class="col-xs-12 item hidden">
+		    		现货/合同货：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		创建日期：<span>216-6-9</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		期望到货日期：<span>216-6-9</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		业务团队：<span>123456</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户经理：<span>张三</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		订单状态：<span>待提交</span>
+		    	</div>
+		    </div>  
+		  </div>
+		</div> 
+		
+		<!-- 订单行项目 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单行项目</div>
+		  <div class="panel-body">
+		    <div class="row line">
+		    	<div class="col-xs-12 item">
+		    		序号：<span>2122222</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料名称：<span>。。。。。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料号：<span>123456789</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		数量：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		单位：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		货币：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		净价：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		税率：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		价格日期：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		含税单价：<span>.......</span>
+		    	</div><div class="col-xs-12 item">
+		    		到货日期：<span>2016.6.12</span>
+		    	</div>
+		    	
+		    </div>
+
+		    <div class="row line">
+		    	<div class="col-xs-12 item">
+		    		序号：<span>2122222</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料名称：<span>。。。。。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料号：<span>123456789</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		数量：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		单位：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		货币：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		净价：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		税率：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		价格日期：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		含税单价：<span>.......</span>
+		    	</div><div class="col-xs-12 item">
+		    		到货日期：<span>2016.6.12</span>
+		    	</div>
+		    	
+		    </div>
+
+		  </div>
+		</div>
+
+		<!-- 订单物流信息 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单物流信息<span>（海运）</span></div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-12 item">
+		    		物料名称：<span>。。。。。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		船次：<span>123456789</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		航次号：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		靠泊装货日期：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		卸货港：<span>.......</span>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单物流信息<span>（公路运输）</span></div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-12 item">
+		    		运送单号：<span>。。。。。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		发运状态：<span>。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		送货地址：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		数量：<span>15153</span>
+		    	</div><div class="col-xs-12 item">
+		    		送货车号：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		提货完成时间：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		实际出发时间：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		实际到达时间：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户签收时间：<span>.......</span>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单物流信息<span>（多式联运）</span></div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-12 item">
+		    		发货单号：<span>。。。。。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		船名航次：<span>123456789</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		交付方式：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		目的港/目的地：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料名称：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		数量：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		实际离港日期：<span>.......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		预计到港日期：<span>.......</span>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单物流信息<span>（铁路运输）</span></div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-12 item">
+		    		发货单号：<span>。。。。。。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		车皮号：<span>123456789</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		封条号：<span>15153</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料名称：<span>.......</span>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+
+		<div class="row">
+			<div class="col-xs-6"><div class="btn btn-primary" style='width:100%'>确认</div></div>
+			<div class="col-xs-6"><div class="btn btn-default"  style='width:100%'>取消</div></div>
+		</div>
+			
+		
+	</div> <!-- 主体内容结束 -->
+
+	<!-- 底部功能菜单 -->
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" >
+				编辑
+			</button>
+			<button class="btn btn-primary form-control btnList" >
+				返回订单列表
+			</button>
+		</div>
+	</div>
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a  href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a class="active" href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/conmmon.js'></script>
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		
+
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="qy-sales-contract.html" >市场调研</a></li>
+			<li><a href="">共性问题</a></li>
+			<li><a href="">新品需求</a></li>
+			<li><a href="" class="active">公开信息</a></li>
+		</ul>
+	</div>
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 潜在客户列表 -->
+			<h2>市场公开信息查看</h2>
+		</div>
+		<div class='panel panel-primary' style='margin-top:20px'>
+			<div class="panel-heading">
+				市场公开信息标题（后台取到）
+			</div>
+			<div class="panel-body">
+				<p class='line' style='min-height: 100px' >这里是信息描述这里是信息描述这里是信息描述这里是信息描述这里是信息描述这里是信息描述这里是信息描述这里是信息描述这里是信息描述这里是信息描述</p>
+				<div class='text-primary bg-info' style='margin-top:10px;display:inline-block;margin-right:20px;'>
+					<img src="../images/base/wordicon.png" width='30' alt="" style='display:block'>附件一
+				</div>
+				<div class='text-primary bg-info'  style='margin-top:10px;display:inline-block;margin-right:20px'>
+					<img src="../images/base/ppticon.png" width='30' alt=""  style='display:block'>附件二
+				</div>
+				<div class='text-primary bg-info'  style='margin-top:10px;display:inline-block;margin-right:20px'>
+					<img src="../images/base/excleicon.png" width='30' alt=""  style='display:block'>附件三
+				</div>
+			</div>
+			
+		</div>
+		
+		
+
+	</div> <!-- 主题内容结束 -->
+	
+	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" >
+				创建新订单
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a class="active" href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+
+	 //延迟加载
+     $(window).scroll(function(){  
+	         var viewH = $(this).height(); //可见高度  
+	         var contentH = $(document).height(); //内容高度
+	         var scrollH = $(document).scrollTop(); //滚动高度
+	         if( (viewH+scrollH) == contentH){
+	         	//加载数据
+	         }
+
+	     });  
+
+</script>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建潜在客户</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+			<li><a href="#">送货地址</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 客户信息详情 -->
+			<h2>客户信息编辑</h2>
+		</div>
+
+		<div class="panel panel-primary"> <!-- 客户基本信息 -->
+		  <div class="panel-heading">客户基本信息</div>
+		  <div class="panel-body">
+		    <form role="form">
+
+			  <div class="form-group">
+			    <label>客户姓名</label>
+			    <input type="text" class="form-control"  placeholder="张三" disabled="disabled">
+			  </div>
+			  <div class="form-group">
+			    <label>客户编号</label>
+			    <input type="text" class="form-control"  placeholder="123456" disabled="disabled">
+			  </div>
+
+			  <!-- 省市区 三级联动 带数据 -->
+			 <!--  <label>地址</label>
+			  <div class="selectWrap" style="margin-bottom: 15px">
+				<center>
+				  <select id="loc_province" style="width:30%;">
+				  </select>
+				  <select id="loc_city" style="width:30%; margin-left: 3.6%">
+				  </select>
+				  <select id="loc_town" style="width:30%;margin-left: 3.6%">
+				  </select>
+				  <input type="text" id="btnval" value="获取值" style="padding:5px 15px;display:none"/>
+				  <input type="text" id="btntext" value="获取文本" style="padding:5px 15px;display:none" />
+				</center>
+			  </div> -->
+			  <div class="group">
+			  	<label>地址</label>
+			  	<div style="margin-bottom:15px">
+			  		<select id="s1" class='form-control' style='width:32%;display:inline-block;'> <option>国家 </option> </select> 
+					<select id="s2" class='form-control'  style='width:32%;display:inline-block;'> <option>省份、州 </option> </select>
+					<select id="s3" class='form-control' style='width:32%;display:inline-block;'> <option>地级市、县 </option> </select> 
+			  	</div>
+			  </div>
+
+			  <div class="form-group">
+			    <label>公司地址</label>
+			    <select class='selectUi'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+			
+			  <div class="form-group">
+			    <label>税号</label>
+			    <input type="text" class="form-control"  placeholder="请输入税号">
+			  </div>
+
+			  <div class="form-group">
+			    <label>行业</label>
+			    <input type="text" class="form-control"  placeholder="请输入行业">
+			  </div>
+
+			 <div class="form-group">
+			    <label>邮箱</label>
+			    <input type="text" class="form-control"  placeholder="请输入邮箱">
+			  </div>
+			  <div class="form-group">
+			    <label>产品领域</label>
+			    <input type="email" class="form-control"  placeholder="请输入产品领域">
+			  </div>
+
+			  <div class="form-group">
+			    <label>合作意向</label>
+			    <select class='selectUi'>
+			    	<option>高</option>
+			    	<option>中</option>
+			    	<option>低</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>业务团队</label>
+			    <select class='selectUi'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			    <label>所属区域</label>
+			    <select class='selectUi'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			    <label>客户经理</label>
+			    <select class='selectUi'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+			  <!-- 备注 -->
+			<div class="form-group">
+			    <label>备注</label>
+			    <input type="text" class="form-control"  placeholder="请输入备注">
+			</div> 
+			</form>
+		  </div>
+		</div> <!-- 客户基本信息结束 -->
+		
+		<!-- 联系人信息 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">联系人信息<span class='glyphicon glyphicon-plus createItem'></div>
+		  <div class="panel-body">
+
+			<form role="form" class='line hideModule'>
+		    	<span class='glyphicon glyphicon-remove closeItem'></span>
+				<!-- 业务团队 -->
+				<div class="form-group">
+				    <label>联系人姓名</label>
+				    <input type="text" class="form-control"  placeholder="请输入联系人名称">
+				</div>
+				<div class="form-group">
+				    <label>职位</label>
+				    <input type="text" class="form-control"  placeholder="请输入职位">
+				</div>
+				<div class="form-group">
+				    <label>联系电话</label>
+				    <input type="tel" class="form-control"  placeholder="请输入联系电话">
+				</div>
+				<div class="form-group">
+				    <label>邮箱</label>
+				    <input type="email" class="form-control"  placeholder="请输入邮箱">
+				</div>  
+			</form>
+
+		  </div>
+		</div>
+
+		<!-- 可使用赛科产品 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">可使用赛科产品<span class='glyphicon glyphicon-plus createItem'></div>
+		  <div class="panel-body">
+		    <form role="form" class='line hideModule'>
+		    	<span class='glyphicon glyphicon-remove closeItem'></span>
+				<!-- 产品名称 -->
+				<div class="form-group">
+				    <label>产品名称</label>
+				    <select class="selectUi">
+				    	<option>001</option>
+				    	<option>001</option>
+				    	<option>001</option>
+				    	<option>001</option>
+				    </select>
+				</div>
+				<!-- 预计月使用量 -->
+				<div class="form-group">
+				    <label>预计月使用量</label>
+				    <input type="text" class="form-control"  placeholder="请输入月使用量">
+				</div>
+				 <!-- 单位 -->
+				<div class="form-group">
+				    <label>单位</label>
+				    <input type="text" class="form-control"  placeholder="请输入单位">
+				</div>
+			</form>
+		  </div>
+		</div>
+
+		 
+		<!-- 客户信息详情结束 -->
+		
+		
+
+	</div> <!-- 主体内容结束 -->
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='btnFinal'>
+				完成
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a class="active" href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+</html>

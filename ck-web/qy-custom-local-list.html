@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>送货地址</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="qy-custom-qz-list.html">潜在客户</a></li>
+			<li><a href="qy-custom-zs-list.html">正式客户</a></li>
+			<li><a href="qy-custom-transport.html" class="active">送货地址</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 潜在客户列表 -->
+			<h2>送货地址列表</h2>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">送货地址1</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">送货地址：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-12 col-sm-12">送货地址类型：<span>EY-0002</span></div>
+		    	
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">送货地址1</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">送货地址：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-12 col-sm-12">送货地址类型：<span>EY-0002</span></div>
+		    	
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">送货地址1</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">送货地址：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-12 col-sm-12">送货地址类型：<span>EY-0002</span></div>
+		    	
+		    </div>
+		  </div>
+		</div>
+		
+		
+
+	</div> <!-- 主题内容结束 -->
+
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a class="active" href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	$('.customList').on('click',function(){
+		window.location.href='qy-custom-local-details.html';
+	})
+</script>
+</html>

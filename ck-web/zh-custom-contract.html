@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>合同查看</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+</head>
+<style type="text/css">
+	#searchBox{
+		width:180px;
+	}
+	.header .searchWrap .searchBtn {
+	    position: absolute;
+	    bottom: 0;
+	    left: 275px;
+	    height: 34px;
+	}
+	.header .searchWrap {
+	    position: absolute;
+	    bottom: 10px;
+	    right: 150px;
+	    width: 280px;
+	}
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html" class='active'>客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html">市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>	
+		</ul>
+		
+		<div class="searchWrap">
+		    <div class="input-group">
+		      <div class="input-group-btn">
+		        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='border: 1px solid #cccccc;'>查询条件 <span class="caret"></span></button>
+		        <ul class="dropdown-menu">
+		          <li><a href="#" id='search01'>按合同编号查询</a></li>
+		          <li><a href="#" id='search02'>按客户/客户经理查询</a></li>
+		        </ul>
+		      </div><!-- /btn-group -->
+		      <input type="text" class="form-control" id="searchBox" placeholder="按合同编号查询">
+		    </div><!-- /input-group -->
+		    <button class="btn btn-primary searchBtn">搜索&nbsp;<span class='
+glyphicon glyphicon-search'></span></button>
+		</div>
+	</div>
+
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li><a href="zh-custom-zs.html">正式客户</a></li>
+		  <li class="active"><a href="zh-custom-contract.html">合同查看</a></li>
+		</ul>
+	</div>
+
+	<div class="wrap">
+
+	<table id="table" data-url="data1.json" ></table>
+		
+		<!-- 模态框触发隐藏按钮 -->
+		<button type="button" class="btn btn-primary  add" data-toggle="modal" data-target="#myModal" style='display:none'>
+		</button>
+
+		<!-- detailModal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">合同详情</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="col-lg-6 col-sm-6">
+		        	<!-- 合同基本信息 -->
+					<div class="panel panel-primary customList">
+					  <div class="panel-heading">合同编号：123456789</div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<div class="col-xs-12 item">
+					    		合同名称：
+					    		<span>某某合同</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		合同类型：
+					    		<span>某某合同</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		合同开始时间：
+					    		<span>2016-10-12</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		合同结束时间：
+					    		<span>2017-10-12</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		客户编号：
+					    		<span>123456</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		客户名称：
+					    		<span>张三</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		需方联系人：
+					    		<span>李四</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		服务供应商：
+					    		<span>某某供应商</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		合同总数量：
+					    		<span>123</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		合同总金额：
+					    		<span>123456</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		币种：
+					    		<span>人民币</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		客户经理：
+					    		<span>李四</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		备注：
+					    		<span>。。。。。。。。</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		合同状态：
+					    		<span>已生效</span>
+					    	</div>
+					    </div>
+					  </div>
+					</div><!-- 合同基本信息结束 -->
+		        </div>
+		        <div class="col-lg-6 col-sm-6">
+		        	<!-- 合同行项目 -->
+					<div class="panel panel-primary customList">
+					  <div class="panel-heading">合同行项目表</div>
+					  <div class="panel-body">
+					    <div class="row">
+					    	<div class="col-xs-12 item">
+					    		合同编号：
+					    		<span>123456</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		项目序号：
+					    		<span>13325</span>
+					    	</div>
+					    	<div class="col-xs-12 item">
+					    		产品名称：
+					    		<span>某某产品</span>
+					    	</div>
+					    	
+					    </div>
+					  </div>
+					</div><!-- 合同行项目结束 -->
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript">
+	function initTable() {  
+        //先销毁表格  
+        $('#table').bootstrapTable('destroy');  
+        //初始化表格,动态从服务器加载数据  
+        $("#table").bootstrapTable({  
+            method: "post",  //使用get请求到服务器获取数据  
+            /*url: "data1.json",*/ //获取数据的Servlet地址  
+            striped: true,  //表格显示条纹  
+            pagination: true, //启动分页  
+            pageSize: 10,  //每页显示的记录数  
+            pageNumber:1, //当前第几页  
+            pageList: [5, 10, 15, 20, 25],  //记录数可选列表  
+            search: true,  //是否启用查询  
+            showColumns: true,  //显示下拉框勾选要显示的列  
+            showRefresh: true,  //显示刷新按钮   
+            columns: [
+            	{
+			        field: 'contractId',
+			        title: '合同编号',
+			        align:'center',
+			        width:'80',
+
+			    }, {
+			        field: 'contractName',
+			        title: '合同名称',
+			         align:'center',
+			         width:'85',
+			    }, {
+			        field: 'startTime',
+			        title: '合同开始时间',
+			         align:'center',
+			         width:'110',
+			    }, {
+			        field: 'endTime',
+			        title: '合同结束时间',
+			         align:'center',
+			         width:'110',
+			    }, {
+			        field: 'customId',
+			        title: '客户编号',
+			         align:'center',
+			         width:'80',
+			    },{
+			        field: 'customName',
+			        title: '客户名称',
+			         align:'center',
+			         width:'80',
+			    }, {
+			        field: 'requireContact',
+			        title: '需方联系人',
+			         align:'center',
+			         width:'100',
+			    },{
+			        field: 'supplier',
+			        title: '服务供应商',
+			         align:'center',
+			         width:'110',
+			    }, {
+			        field: 'num',
+			        title: '合同总数量',
+			         align:'center',
+			         width:'110'
+			    }, {
+			        field: 'money',
+			        title: '合同总金额',
+			         align:'center',
+			         width:'110',
+			    }, {
+			        field: 'currency',
+			        title: '币种',
+			         align:'center',
+			         width:'50'
+			    }, {
+			        field: 'manager',
+			        title: '客户经理',
+			         align:'center',
+			         width:'100',
+
+			    }
+		    ],
+		    data:[{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			},{"contractId":"123456789",
+				"contractName":"某某合同",
+				"startTime":"2016-10-8",
+				"endTime":"2017-10-12",
+				"customId":"122322",
+				"customName":"张山",
+				"requireContact":"李四",
+				"supplier":"某某供应商",
+				"num":"合同总数量",
+				"money":"121515",
+				"currency":"人民币",
+				"manager":"李四"
+			}],
+		    onClickRow: function (row, $element, field) {
+		        $('.add').trigger('click');
+		    },
+
+          });  
+      }
+
+      initTable();
+
+      /*搜索框placeholder控制*/
+      $("#search01").on('click',function(){
+      	console.log($(this).html());
+      	$("#searchBox").attr('placeholder',$(this).html());
+      })
+      $("#search02").on('click',function(){
+      	console.log($(this).html());
+      	$("#searchBox").attr('placeholder',$(this).html());
+      })
+		
+</script>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>共性问题发布</title>
+	<script type="text/javascript" src='js/jquery-3.1.1.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-editable.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table-editable.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<style type="text/css">
+	.list{
+		margin:20px 10px 20px 10px ;
+	}
+	.item_disabled{
+		padding-bottom:6px;
+		font-weight: normal;
+		color:#666;
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.item_disabled span{
+		font-weight: bold;
+		font-size: 14px;
+		text-align: left;
+	}
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html" class='active'>市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>		
+		</ul>
+		
+	</div>
+	
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="zh-market-survey-list.html">市场调研</a></li>
+		  <li role="presentation" class="active"><a href="zh-market-faq-look.html">共性问题</a></li>
+		  <li role="presentation"><a href="zh-market-newProduct-submit.html">新产品需求</a></li>
+		</ul>
+	</div>
+	
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+		  <li role="presentation"><a href="zh-market-faq-look.html">共性问题查看</a></li>
+		  <li role="presentation" class="active"><a href="zh-market-faq-submit.html">共性问题发布</a></li>
+		</ul>
+		<div id='btnList' style="margin-top:20px;margin-bottom:10px">
+			<button class="btn btn-primary" id='createBtn'>创建</button>
+			<button class="btn btn-primary" id='editBtn' disabled>修改</button>
+			<button class="btn btn-primary" id='delBtn' disabled>删除</button>
+			<button class="btn btn-primary" id='saveBtn' disabled>保存</button>
+			<button class="btn btn-primary" id='submitBtn' disabled>发布</button>
+			<button class="btn btn-primary" id='unsubmitBtn' disabled>撤销发布</button>
+			<button class="btn btn-primary" id='upBtn' disabled>上移</button>
+			<button class="btn btn-primary" id='downBtn' disabled>下移</button>
+		</div>
+		<form>
+			<table id='table' class='table table-bordered table-striped table-hover'>
+				<thead>
+					<tr class='tabHeader'>
+						<th><input id='checkAll' class='check' type="checkbox" name=""></th>
+						<th name='id'>序号</th>
+						<th name='title'>题干</th>
+						<th name='answer'>答案</th>
+						<th name='status'>状态</th>
+					</tr>
+				</thead>
+				
+				<tbody id='tBody'>
+					
+				</tbody>
+				
+
+			</table>
+		</form>
+		
+
+	</div>
+
+
+
+
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+<script type="text/javascript">
+	var tabData=[
+		{
+			'id':1,
+			'title':'都提供哪些运输方式？',
+			'answer':'海运和陆运。',
+			'status':'未发布',
+		},
+		{
+			'id':2,
+			'title':'都提供哪些运输方式？',
+			'answer':'海运和陆运。',
+			'status':'未发布',
+		},
+		{
+			'id':3,
+			'title':'都提供哪些运输方式？',
+			'answer':'海运和陆运。',
+			'status':'未发布',
+		},
+		{
+			'id':4,
+			'title':'都提供哪些运输方式？',
+			'answer':'海运和陆运。',
+			'status':'未发布',
+		}
+	];
+
+	
+	for(var i=0; i<tabData.length; i++){
+		$('#tBody').append("<tr>\
+				<td class='check'><input type='checkbox' name='item'></td>\
+				<td class='id'>"+tabData[i]['id']+"</td>\
+				<td class='title'>"+tabData[i]['title']+"</td>\
+				<td class='answer'>"+tabData[i]['answer']+"</td>\
+				<td class='status'>"+tabData[i]['status']+"</td>\
+			</tr>")
+	}
+
+	//创建新问题
+	$('#createBtn').click(function(){
+		for(var i=0;i<$('.id').length;i++){
+			$('.id').eq(i).html(parseInt($('.id').eq(i).html())+1)
+		}
+		$('#tBody').prepend("<tr>\
+				<td class='check'><input type='checkbox' checked name='item'></td>\
+				<td class='id'>1</td>\
+				<td class='title'><input type='text' placeholder='请输入题干'/></td>\
+				<td class='answer'><input type='text' placeholder='请输入答案'/></td>\
+				<td class='status'>未发布</td>\
+			</tr>")
+		console.log($('#tBody tr').eq(0).find("input[placeholder='请输入题干']"))
+		$('#tBody tr').eq(0).find("input[placeholder='请输入题干']").focus();
+	})
+	//全选、全不选
+	$('#checkAll').click(function(){
+		$('[name=item]:checkbox').prop('checked',this.checked);		
+	})
+	//子项与全选框联动
+	$('[name=item]:checkbox').click(function(){
+		var flag=true;
+		$('[name=item]:checkbox').each(function(){
+			if(!this.checked){
+				flag=false;
+			}
+		});
+		console.log(flag);
+		$('#checkAll').prop('checked',flag);
+	})
+
+	//编辑功能
+	$('#editBtn').click(function(){
+		$('[name=item]:checked').parents('tr').find('.title').html("<input type='text' placeholder='请输入题干'/>")
+		$('[name=item]:checked').parents('tr').find('.answer').html("<input type='text' placeholder='请输入答案'/>")
+		$('[name=item]:checked').eq(0).parents('tr').find("input[placeholder='请输入题干']").focus();
+	})
+
+	//保存功能
+	$('#saveBtn').click(function(){
+		var valTitle = $('[name=item]:checked').parents('tr').find('.title input').val();
+		var valAnswer = $('[name=item]:checked').parents('tr').find('.answer input').val();
+		$('[name=item]:checked').parents('tr').find('.title').html(valTitle);
+		$('[name=item]:checked').parents('tr').find('.answer').html(valAnswer);
+		$('[name=item]:checkbox').prop('checked',false); //清空复选框	
+	})
+
+	//发布功能
+	$('#submitBtn').click(function(){
+		$('[name=item]:checked').parents('tr').find('.status').html('已发布');
+		$('[name=item]:checkbox').prop('checked',false); //清空复选框
+	})
+	//撤销发布
+	$('#unsubmitBtn').click(function(){
+		$('[name=item]:checked').parents('tr').find('.status').html('未发布');
+		$('[name=item]:checkbox').prop('checked',false); //清空复选框
+	})
+
+	//删除
+	$('#delBtn').click(function(){
+		$('[name=item]:checked').parents('tr').remove();
+		for(var i=0;i<$('.id').length;i++){
+			$('.id').eq(i).html(i+1);
+		}
+	})
+
+	//上移
+	$('#upBtn').click(function(){
+		$('[name=item]:checked').parents('tr').each(function(){
+			console.log($(this).prev());
+			
+			if($(this).prev().html()){
+				$(this).prev().before($(this));
+			}else{
+				alert('已经到顶了')
+			}
+			//$(this).insertBefore($(this).prev());
+		});
+		for(var i=0;i<$('.id').length;i++){
+			$('.id').eq(i).html(i+1);
+		}
+	})
+	//下移
+	$('#downBtn').click(function(){
+		$('[name=item]:checked').parents('tr').each(function(){
+			if($(this).next().html()){
+				$(this).insertAfter($(this).next());
+			}else{
+				alert('已经到底了')
+			}
+			
+		});
+		for(var i=0;i<$('.id').length;i++){
+			$('.id').eq(i).html(i+1);
+		}
+	})
+
+	//按钮权限
+	$('#tBody').delegate("input:checkbox","click",function(){
+		var flag=false;
+		$('[name=item]:checkbox').each(function(){
+			if(this.checked){
+				flag=true;
+			}
+		});
+		console.log(flag);
+		if(flag){
+			$('#editBtn').removeAttr('disabled');
+			$('#delBtn').removeAttr('disabled');
+			$('#submitBtn').removeAttr('disabled');
+			$('#unsubmitBtn').removeAttr('disabled');
+			if($('[name=item]:checked').length==1){
+				$('#upBtn').removeAttr('disabled');
+				$('#downBtn').removeAttr('disabled');
+			}else{
+				$('#upBtn').attr('disabled','');
+				$('#downBtn').attr('disabled','');
+			}
+		}else{
+			$('button:not("#createBtn")').attr('disabled','');
+		}
+		
+	})
+
+	$('#createBtn').click(function(){
+		$('#saveBtn').removeAttr('disabled');
+	})
+	$('#editBtn').click(function(){
+		$('#saveBtn').removeAttr('disabled');
+	})
+	$('#saveBtn').click(function(){
+		$('#saveBtn').attr('disabled','');
+	})
+
+</script>
+</html>

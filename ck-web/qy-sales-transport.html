@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>物流</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/conmmon.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:20%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="qy-sales-contract.html" >合同</a></li>
+			<li><a href="">需求计划</a></li>
+			<li><a href="">订单</a></li>
+			<li><a href="qy-sales-transport.html" class="active">物流</a></li>
+			<li><a href="">拜访计划</a></li>
+		</ul>
+	</div>
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 正式客户列表 -->
+			<h2>物流信息</h2>
+		</div>
+		<div class="panel panel-primary customList">
+		  <div class="panel-heading">某某客户您好：</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6"><span>XXX客户您好，您的XXX订单的物流状态已变更为XXX，船号为XXX，到港时间为XXX，离港时间为XXX</span></div>
+
+		    </div>
+		  </div>
+		</div>
+		
+		
+
+	</div> <!-- 主题内容结束 -->
+	<div class="mask">
+		<a href="qy-custom-transport.html">
+			<button class="btn btn-primary form-control myBtn">
+				刷新物流信息
+			</button>
+		</a>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a class="active" href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	$('.customList').on('click',function(){
+		window.location.href='qy-custom-zs-details.html';
+	})
+</script>
+</html>

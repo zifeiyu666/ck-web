@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>技术信息需求反馈</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科服务号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+		<form role="form" id='create_form'>
+		    	<div class="panel panel-default">
+		    		<div class="panel-heading">
+		    			技术信息需求问题
+		    		</div>
+		    		<div class="panel-body">
+		    			<div class="item line">
+		    				反馈内容
+		    			</div>
+		    			<div class="item" style='margin-top:10px'>
+
+						  <div class="form-group row">
+
+					        <label class="control-label col-xs-12">
+					          单选
+					        </label>
+						    <div class=" col-sm-3 col-xs-6">
+						       <input type="radio"> item
+						    </div>
+						    <div class=" col-sm-3 col-xs-6">
+						       <input type="radio"> item
+						    </div>
+						    <div class=" col-sm-3 col-xs-6">
+						       <input type="radio"> item
+						    </div>
+						  </div>
+
+						  <div class="form-group row">
+
+					        <label class="control-label col-xs-12">
+					          多选
+					        </label>
+						    <div class=" col-sm-3 col-xs-6">
+						       <input type="checkbox"> item
+						    </div>
+						    <div class=" col-sm-3 col-xs-6">
+						       <input type="checkbox"> item
+						    </div>
+						    <div class=" col-sm-3 col-xs-6">
+						       <input type="checkbox"> item
+						    </div>
+						  </div>
+
+						  <div class="form-group row">
+						    <label class="col-sm-2 control-label">文本框</label>
+						    <div class="col-sm-10">
+						      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+						    </div>
+						  </div>
+
+						  <div class="form-group row">
+						    <label class="col-sm-2 control-label">文件上传</label>
+						    <div class="col-sm-10">
+						      <input type="file" class="form-control" id="inputPassword3" placeholder="Password">
+						    </div>
+						  </div>
+		    			</div>
+		    		</div>
+		    	</div>
+		    	<button class="btn btn-primary form-control btnList" type='submit' style='width:100%'>
+					提交
+				</button>
+			</form>
+
+	</div>
+	
+
+	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='nextBtn' >
+				提交
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	fnModal('modalComplaintBtn','modalComplaint');
+	fnModal('modalCustomBtn','modalCustom');
+	$('#smallClass').html('<option>性能</option><option>质量</option><option>包装</option><option>供应</option>')
+	$('#bigClass').change(function(){
+		var txt = $("#bigClass option:selected").text();
+		if(txt == '产品')
+		{
+			$('#smallClass').html('<option>性能</option><option>质量</option><option>包装</option><option>供应</option>')
+		}else if(txt == '销售服务')
+		{
+
+			$('#smallClass').html('<option>供应计划</option><option>价格</option><option>投诉处理</option><option>信息培训等增值服务</option><option>销售人员协调工作</option>')
+		}else if(txt == '常规服务')
+		{
+
+			$('#smallClass').html('<option>物流配送</option><option>客户服务</option><option>技术服务</option><option>付款</option>')
+		}
+	})
+
+	fnModal('btnSee','modal1')
+</script>
+</html>

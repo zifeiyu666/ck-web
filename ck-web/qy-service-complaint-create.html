@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建潜在客户</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+		.customInfo .form-group{
+			padding-left:0;
+		}
+		#modalCustomBtn{
+			margin-top: 28px;
+    		margin-left: -5px;
+		}
+
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 客户信息详情 -->
+			<h2>创建投诉单</h2>
+		</div>
+		
+		<!-- 投诉单主体 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">投诉单</div>
+		  <div class="panel-body">
+		    <form role="form" id='create_form'>
+	    	  <div class="group clearfix customInfo">
+	    		  <div class="form-group col-lg-5 col-sm-5 col-xs-5">
+				    <label>客户代码</label>
+				    <input type="text" name='custome_id' class="form-control disabled" disabled  placeholder="通过查询自动导入">
+				  </div>	
+				  <div class="form-group col-lg-5 col-sm-5 col-xs-5" >
+				    <label>客户姓名</label>
+				    <input type="text" name='custome_name' class="form-control" disabled  placeholder="通过查询自动导入">
+				  </div>
+				  <div class="col-xs-2">
+				  	<button id='modalCustomBtn' class='btn btn-primary btn-sm' type='button'>查询</button>
+				  </div>
+	    	  </div>
+			  <div class="form-group">
+			  	<label>投诉标题</label>
+			  	<input type="text" name='complaint_title' class="form-control">
+			  </div>
+			  <div class="form-group">
+			  	<label>投诉类型</label>
+			  	<select name='complaint_type' class='selectUi'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+			  <div class="form-group" id='order_selected'>
+			  	<div class='line'>
+			  		<label>
+			  			订单信息
+			  		</label>
+			  		<div class="input-group">
+				  	  <input type="text" class="form-control" disabled placeholder="(查询后导入)订单号:12345678912345678912" />
+				      <span class="input-group-btn">
+				        <button class="btn btn-primary" id='modalComplaintBtn' type="button">搜索</button>
+				      </span>
+				    </div>   
+				    <div class="panel panel-primary marginTop">
+				      	<div class="panel-heading fs12">
+				      		<div name='order_id'>订单号:12345678912345678912</div>
+				      	</div>
+				      	<div class="panel-body">
+				      	  <ul class="list-group">
+							  <li class='line'>
+							  	<div style='line-height: 25px;'>
+								  	<span class='glyphicon glyphicon-remove pull-right closeOrder'></span>
+								  	<div>物料号：1534546846135</div>
+								  	<div>物料描述：。。。。</div>
+							  	</div>
+							  	<div class="form-group">
+								    <label>批次号</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>损失吨数</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>发货单号</label>
+								    <input class='form-control' type="text" >
+								</div>
+							  </li>
+							  <li class='line'>
+							  	<div style='line-height: 25px;'>
+								  	<span class='glyphicon glyphicon-remove pull-right closeOrder'></span>
+								  	<div>物料号：1534546846135</div>
+								  	<div>物料描述：。。。。</div>
+							  	</div>
+							  	<div class="form-group">
+								    <label>批次号</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>损失吨数</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>发货单号</label>
+								    <input class='form-control' type="text" >
+								</div>
+							  </li>
+						  </ul>
+				      	</div>	
+				    </div>
+				    <div class="panel panel-primary">
+				      	<div class="panel-heading">
+				      		<div name='order_id'>订单号:12345678912345678912</div>
+				      	</div>
+				      	<div class="panel-body">
+				      	  <ul class="list-group">
+							  <li class='line'>
+							  	<div style='line-height: 25px;'>
+								  	<span class='glyphicon glyphicon-remove pull-right closeOrder'></span>
+								  	<div>物料号：1534546846135</div>
+								  	<div>物料描述：。。。。</div>
+							  	</div>
+							  	<div class="form-group">
+								    <label>批次号</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>损失吨数</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>发货单号</label>
+								    <input class='form-control' type="text" >
+								</div>
+							  </li>
+							  <li class='line'>
+							  	<div style='line-height: 25px;'>
+								  	<span class='glyphicon glyphicon-remove pull-right closeOrder'></span>
+								  	<div>物料号：1534546846135</div>
+								  	<div>物料描述：。。。。</div>
+							  	</div>
+							  	<div class="form-group">
+								    <label>批次号</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>损失吨数</label>
+								    <input class='form-control' type="text" >
+								</div>
+								<div class="form-group">
+								    <label>发货单号</label>
+								    <input class='form-control' type="text" >
+								</div>
+							  </li>
+						  </ul>
+				      	</div>	
+				    </div>
+			  	</div>
+			  	
+			  </div>			  
+
+			  <div class="form-group">
+			    <label>运输方式</label>
+			    <select name='transport_mode' class='selectUi'>
+			    	<option>公路卡车运输（固体）</option>
+			    	<option>公路槽车运输（液体）</option>
+			    	<option>铁路运输（固体）</option>
+			    	<option>国内整船运输（液体）</option>
+			    	<option>国内多式联运（固体）</option>
+			    	<option>管道运输（液体）</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			  	<label>投诉描述</label>
+			  	<textarea name='complaint_description' class='form-control'></textarea>
+			  </div>
+			  <div class="form-group">
+			  	<div class="panel panel-primary">
+	        		<div class="panel-heading">证照上传</div>
+	        		<div class="panel-body">
+	        			  <div class="form-group">
+						    <label for="exampleInputFile">选择文件上传</label>
+						    <input name='licence' type="file" id="exampleInputFile">
+						    <p class="help-block">请选择相应的文件进行上传.</p>
+						  </div>
+	        		</div>
+	        	</div>
+			  </div>
+			  <div class="form-group">
+			    <label>受理客户经理</label>
+			    <select name='custome_manager' class='selectUi'>
+			    	<option>张三</option>
+			    	<option>李四</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			    <label>提交状态</label>
+			    <select name='submit_status' class='selectUi'>
+			    	<option>新建</option>
+			    	<option>待确认</option>
+			    </select>
+			  </div>
+			</form>
+		  </div>
+		</div>
+	</div>
+
+
+	<!-- 订单检索 -->
+	<div class="modalModule" id='modalComplaint'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>订单信息搜索</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">输入查询条件</div>
+		  <div class="panel-body">
+		  	<div class="row">
+		  		<div class='col-lg-8 col-sm-8 col-xs-8'>
+		  			<div class="input-group">
+				  	  <input type="text" class="form-control" placeholder="通过订单号精确查询">
+				      <span class="input-group-btn">
+				        <button class="btn btn-primary" type="button">搜索</button>
+				      </span>
+				    </div>
+		  		</div>
+		  		<div class=' col-lg-4 col-sm-4 col-xs-4'>
+		  			<div class="input-group w100" >
+				    	<button class="btn btn-primary w100" type="button"  data-toggle="modal" data-target="#myModal">时间查询</button>
+				    </div>
+		  		</div>
+			    
+		  	</div>
+			
+		    <div class="form-group marginTop">
+		    	<div class="panel panel-primary">
+		    		<div class="panel-heading">
+		    			订单号:12345678912345678912
+		    		</div>
+		    		<div class="panel-body">
+		    			<ul>
+						  <li class='line'>
+						  	<div><input type="checkbox" class='pull-right' /></div>
+						  	<div>订单行编号:131355513</div>
+						  	<div>物料号:....</div>
+						  	<div>物料描述:4156433553</div>
+						  	<div>数量（吨）:121</div>
+						  </li>
+						  <li class='line'>
+						  	<div><input type="checkbox" class='pull-right' /></div>
+						  	<div>订单行编号:131355513</div>
+						  	<div>物料号:....</div>
+						  	<div>物料描述:4156433553</div>
+						  	<div>数量（吨）:121</div>
+						  </li>
+						  <li class='line'>
+						  	<div><input type="checkbox" class='pull-right' /></div>
+						  	<div>订单行编号:131355513</div>
+						  	<div>物料号:....</div>
+						  	<div>物料描述:4156433553</div>
+						  	<div>数量（吨）:121</div>
+						  </li>
+						</ul>
+		    		</div>
+		    	</div>
+
+		    	<div class="panel panel-primary">
+		    		<div class="panel-heading">订单号:12345678912345678912</div>
+		    		<div class="panel-body">
+		    			<ul>
+						  <li class='line'>
+						  	<div><input type="checkbox" class='pull-right' /></div>
+						  	<div>订单行编号:131355513</div>
+						  	<div>物料号:....</div>
+						  	<div>物料描述:4156433553</div>
+						  	<div>数量（吨）:121</div>
+						  </li>
+						  <li class='line'>
+						  	<div><input type="checkbox" class='pull-right' /></div>
+						  	<div>订单行编号:131355513</div>
+						  	<div>物料号:....</div>
+						  	<div>物料描述:4156433553</div>
+						  	<div>数量（吨）:121</div>
+						  </li>
+						  <li class='line'>
+						  	<div><input type="checkbox" class='pull-right' /></div>
+						  	<div>订单行编号:131355513</div>
+						  	<div>物料号:....</div>
+						  	<div>物料描述:4156433553</div>
+						  	<div>数量（吨）:121</div>
+						  </li>
+						</ul>
+		    		</div>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+
+		<button class="btn btn-primary form-control">
+			添加
+		</button>
+		<!-- 时间检索 -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">通过时间查询</h4>
+		      </div>
+		      <div class="modal-body">
+		          <div class="group clearfix customInfo">
+		    		  <div class="form-group col-lg-6 col-sm-6 col-xs-6">
+					    <label>客户代码</label>
+					    <input type="text" class="form-control disabled" disabled  placeholder="12355315">
+					  </div>	
+					  <div class="form-group col-lg-6 col-sm-6 col-xs-6" >
+					    <label>客户姓名</label>
+					    <input type="text" class="form-control" disabled  placeholder="张三">
+					  </div>
+		    	  </div>
+		    	  <form class="form-inline">
+					  <div class="form-group">
+					    <label>下单时间</label>
+					    <input type="date" class="form-control" >
+					    <label class='dbk tcenter'>-</label>
+					    <input type="date" class="form-control" >
+					  </div>
+					  <button type="button" class="btn btn-primary">搜索</button>
+				  </form>
+				  <div class="form-group marginTop">
+				  	<ul class="list-group">
+					  <li class="list-group-item clearfix">
+					  	<div><input type="checkbox" class='pull-right' /></div>
+					  	<div>订单号:12345678912345678912</div>
+					  	<div>售达方:.......</div>
+					  	<div>送达方:....</div>
+					  	<div>下单时间:2016-10-9</div>
+					  	<div>数量（吨）:121</div>
+					  </li>
+					  <li class="list-group-item clearfix">
+					  	<div><input type="checkbox" class='pull-right' /></div>
+					  	<div>订单号:12345678912345678912</div>
+					  	<div>售达方:.......</div>
+					  	<div>送达方:....</div>
+					  	<div>下单时间:2016-10-9</div>
+					  	<div>数量（吨）:121</div>
+					  </li>
+					  <li class="list-group-item clearfix">
+					  	<div><input type="checkbox" class='pull-right' /></div>
+					  	<div>订单号:12345678912345678912</div>
+					  	<div>售达方:.......</div>
+					  	<div>送达方:....</div>
+					  	<div>下单时间:2016-10-9</div>
+					  	<div>数量（吨）:121</div>
+					  </li>
+					  
+					</ul>
+			    	<!-- <table class="table table-striped table-bordered">
+					  <tr>
+					  	<th><input type="checkbox" /></th>
+					  	<th>订单号</th>
+					  	<th>售达方</th>
+					  	<th>送达方</th>
+					  	<th>下单时间</th>
+					  </tr>
+					  <tr>
+					  	<td><input type="checkbox" /></td>
+					  	<td>1351151</td>
+					  	<td>......</td>
+					  	<td>......</td>
+					  	<td>2016-6-12</td>
+					  </tr>
+					  <tr>
+					  	<td><input type="checkbox" /></td>
+					  	<td>1351151</td>
+					  	<td>......</td>
+					  	<td>......</td>
+					  	<td>2016-6-12</td>
+					  </tr>
+					</table> -->
+				  </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary">确认</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	</div><!-- 订单检索结束 -->
+
+	<!-- 客户信息检索 -->
+	<div class="modalModule" id='modalCustom'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>查询客户信息</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">输入查询条件</div>
+		  <div class="panel-body">
+			  <div class="group clearfix customInfo">
+	    		  <div class="form-group col-lg-5 col-sm-5 col-xs-5">
+				    <label>客户代码</label>
+				    <input type="text" class="form-control"  placeholder="请输入姓名">
+				  </div>	
+				  <div class="form-group col-lg-5 col-sm-5 col-xs-5">
+				    <label>客户姓名</label>
+				    <input type="text" class="form-control"  placeholder="请输入姓名">
+				  </div>
+				  <div class="col-xs-2">
+				  	<button id='modalCustomBtn' class='btn btn-primary btn-sm' type='button'>查询</button>
+				  </div>
+	    	  </div>
+			  <div class="form-group">
+			  	<ul class="list-group">
+				  <li class="list-group-item clearfix">
+				  	<div><input type="checkbox" class='pull-right' /></div>
+				  	<div>客户名称:张三</div>
+				  	<div>客户代码:1235351355</div>
+				  	<div>客户状态:....</div>
+				  </li>
+				  <li class="list-group-item clearfix">
+				  	<div><input type="checkbox" class='pull-right' /></div>
+				  	<div>客户名称:张三</div>
+				  	<div>客户代码:1235351355</div>
+				  	<div>客户状态:....</div>
+				  </li>
+				  <li class="list-group-item clearfix">
+				  	<div><input type="checkbox" class='pull-right' /></div>
+				  	<div>客户名称:张三</div>
+				  	<div>客户代码:1235351355</div>
+				  	<div>客户状态:....</div>
+				  </li>
+				</ul>
+		    	<!-- <table class="table table-striped table-bordered">
+				  <tr>
+				  	<th></th>
+				  	<th>客户名称</th>
+				  	<th>客户代码</th>
+				  	<th>客户状态</th>
+				  </tr>
+				  <tr>
+				  	<td><input type="checkbox"></td>
+				  	<td>张三</td>
+				  	<td>155353</td>
+				  	<td>......</td>
+				  </tr>
+				  <tr>
+				  	<td><input type="checkbox"></td>
+				  	<td>张三</td>
+				  	<td>155353</td>
+				  	<td>......</td>
+				  </tr>
+				  <tr>
+				  	<td><input type="checkbox"></td>
+				  	<td>张三</td>
+				  	<td>155353</td>
+				  	<td>......</td>
+				  </tr>
+				</table> -->
+		      </div>
+		      <button class="btn btn-primary form-control">
+					添加
+			  </button>
+		  </div>
+		</div>
+		    
+	</div><!-- 客户信息检索结束 -->
+
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='saveBtn'>
+				保存
+			</button>
+			<button class="btn btn-primary form-control btnList" id='submitBtn'>
+				提交
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	fnModal('modalComplaintBtn','modalComplaint');
+	fnModal('modalCustomBtn','modalCustom');
+
+	/*表单提交*/
+	$('#saveBtn').click(function(){
+		$.ajax({
+			url:'submit.php',
+			type:'POST',
+			dataType:'text',
+			data:$('#create_form').serialize(),
+			success:function(a){
+				console.log(a)
+			},
+			error:function(a,b,c){
+				console.log('error');
+			},
+		})
+	})
+	
+</script>
+</html>

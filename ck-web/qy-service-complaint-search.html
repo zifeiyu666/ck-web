@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{			
+			float:left;
+			width:50%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="qy-custom-qz-list.html" class="active">投诉单</a></li>
+			<li><a href="qy-custom-zs-list.html">信息交互</a></li>
+		</ul>
+	</div>
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 潜在客户列表 -->
+			<h2>投诉单列表</h2>
+		</div>
+		<div class="panel panel-primary complaintList">
+		  <div class="panel-heading">投诉单号：2513515513</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>张三</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户代码：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">提交时间：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">投诉类别：<span>。。。</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">投诉类型：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户经理：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary complaintList">
+		  <div class="panel-heading">投诉单号：2513515513</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>张三</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户代码：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">提交时间：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">投诉类别：<span>。。。</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">投诉类型：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户经理：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary complaintList">
+		  <div class="panel-heading">投诉单号：2513515513</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>张三</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户代码：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">提交时间：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">投诉类别：<span>。。。</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">投诉类型：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户经理：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div>
+		<div class="panel panel-primary complaintList">
+		  <div class="panel-heading">投诉单号：2513515513</div>
+		  <div class="panel-body">
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">客户名称：<span>张三</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户代码：<span>EY</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">提交时间：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">投诉类别：<span>。。。</span></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-6 col-sm-6">投诉类型：<span>EY-0002</span></div>
+		    	<div class="col-xs-6 col-sm-6">客户经理：<span>999999</span></div>
+		    </div>
+		  </div>
+		</div> <!-- 潜在客户列表结束 -->
+		
+		
+
+	</div> <!-- 主题内容结束 -->
+	
+	
+	<!-- 搜索按钮 -->
+	<span class="glyphicon glyphicon-search searchIcon" id='searchModalBtn'>
+	</span>
+	<!-- 订单检索 -->
+	<div class="modalModule" id='searchModal'>
+		<div class="modalTitle">
+			<span class="modalClose glyphicon glyphicon-remove"></span>
+			<h1>订单信息搜索</h1>
+		</div>
+
+		<div class="panel panel-primary">
+		  <div class="panel-heading">输入查询条件</div>
+		  <div class="panel-body">
+		  	<div class="row">
+		  		<div class='col-lg-8 col-sm-8 col-xs-8'>
+		  			<div class="input-group">
+				  	  <input type="text" class="form-control" placeholder="通过订单号精确查询">
+				      <span class="input-group-btn">
+				        <button class="btn btn-primary" type="button">搜索</button>
+				      </span>
+				    </div>
+		  		</div>
+		  		<div class=' col-lg-4 col-sm-4 col-xs-4'>
+		  			<div class="input-group w100" >
+				    	<button class="btn btn-primary w100" type="button"  data-toggle="modal" data-target="#myModal">模糊查询</button>
+				    </div>
+		  		</div>
+			    
+		  	</div>
+			
+		    <div class="form-group marginTop">
+			    <ul class="list-group" id='complaintList'>
+				  <li class="list-group-item clearfix">
+				  	<div>投诉单号：123185464353513515</div>
+				  	<div>客户代码:1235351355</div>
+				  	<div>客户名称:张三</div>
+				  	<div>提交时间:2016-9-10</div>
+				  	<div>投诉类别:......</div>
+				  	<div>投诉状态:........</div>
+				  	<div>投诉类型:........</div>
+				  	<div>客户经理:张三</div>
+				  </li>
+				  <li class="list-group-item clearfix">
+				  	<div>投诉单号：123185464353513515</div>
+				  	<div>客户代码:1235351355</div>
+				  	<div>客户名称:张三</div>
+				  	<div>提交时间:2016-9-10</div>
+				  	<div>投诉类别:......</div>
+				  	<div>投诉状态:........</div>
+				  	<div>投诉类型:........</div>
+				  	<div>客户经理:张三</div>
+				  </li>
+				  <li class="list-group-item clearfix">
+				  	<div>投诉单号：123185464353513515</div>
+				  	<div>客户代码:1235351355</div>
+				  	<div>客户名称:张三</div>
+				  	<div>提交时间:2016-9-10</div>
+				  	<div>投诉类别:......</div>
+				  	<div>投诉状态:........</div>
+				  	<div>投诉类型:........</div>
+				  	<div>客户经理:张三</div>
+				  </li>
+				  
+				</ul>
+		    </div>
+		  </div>
+		</div>
+		<!-- 时间检索 -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">通过时间查询</h4>
+		      </div>
+		      <div class="modal-body">
+		          <div class="form-group">
+				    <label>客户名称</label>
+				    <input class='form-control' type="text" >
+				  </div>
+		    	  <form class="form-inline">
+					  <div class="form-group">
+					    <label>提交时间</label>
+					    <input type="date" class="form-control" >
+					    <label class='dbk tcenter'>-</label>
+					    <input type="date" class="form-control" >
+					  </div>
+				  </form>
+				  <div class="form-group">
+				    <label>投诉状态</label>
+				    <select class='selectUi'>
+				    	<option>001</option>
+				    	<option>002</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label>投诉相关方</label>
+				    <input class='form-control' type="text" >
+				  </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary">确认</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	</div><!-- 订单检索结束 -->	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='CreateComplaint'>
+				TS/客服提交投诉单页面
+			</button>
+		</div>
+	</div>
+
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active"  href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+
+	$('.complaintList').on('click',function(){
+		window.location.href='';
+	})
+	$('#CreateComplaint').on('click',function(){
+		window.location.href='qy-service-complaint-create.html';
+	})
+	/*搜索模态框*/
+	fnModal('searchModalBtn','searchModal');
+	/*投诉单详情跳转*/
+	$('#complaintList').find('li').click(function(){
+		window.location.href='qy-service-complaint-details.html'
+	})
+	
+</script>
+</html>

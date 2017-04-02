@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/conmmon.js'></script>
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.3%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="" >市场调研</a></li>
+			<li><a href="">共性问题</a></li>
+			<li><a href="" class="active">新产品需求</a></li>
+		</ul>
+	</div>
+	<div class="main"> 
+
+		<div class="title"> 
+			<h2>新产品需求提报</h2>
+		</div>
+		<form id='newProductSubmitForm' action="">
+			<div class='form-group'>
+				<label>用途 <span class='text-danger'>*</span></label>
+				<input type="text" name='use' class="form-control formItem">
+			</div>
+			<div class='form-group'>
+				<label>类似产品 <span class='text-danger'>*</span></label>
+				<input type="text" name='similar' class="form-control formItem">
+			</div>
+			<div class='form-group'>
+				<label>主要参数和用途 <span class='text-danger'>*</span></label>
+				<textarea name='description' class="form-control formItem"></textarea>
+			</div>
+			<button id='submitBtn' type='button' class='btn btn-primary' style='width:100%' >提交</button>
+		</form>
+		
+		
+
+	</div> <!-- 主题内容结束 -->
+	
+	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control" >
+				提交
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a class="active" href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+
+	  $('#submitBtn').click(function(){
+	  	var rel = []; //存放表单value值
+	  	var con =['用途','类似产品','主要参数和用途']; //存放表单item项目名
+	  	var ale= []; //存放为空的表单item名
+	  	for(var i=0;i<$('.formItem').length;i++){ 
+	  		rel.push($('.formItem').eq(i).val())
+	  	}
+	  	for(var i=0;i<rel.length;i++){ //获取为空的表单item名
+	  		if( rel[i] == '' ){
+	  			ale.push( con[i] ); 
+	  		}
+	  	}
+	  	if(ale.join('/')){
+	  		alert(ale.join('/')+"不能为空！");
+	  	}else{
+	  		var r = confirm("确定要提交么？")
+	  		if( r == true ){
+
+	  			var data = $('#newProductSubmitForm').serialize(); //表单序列化
+
+	  			$.ajax({ //异步提交
+	  				url:'',
+	  				data: data,
+	  				method:'POST',
+	  				success:function(){
+
+	  				}
+	  			})
+	  			//$("#newProductSubmitForm").submit(); //普通提交
+	  		}else{
+	  			return ;
+	  		}
+	  	}
+	  	
+	  })
+
+</script>
+</html>

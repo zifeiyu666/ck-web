@@ -1,0 +1,22 @@
+
+#header {
+background:#DDD;
+padding:10px 20px;
+border-bottom:2px solid #CCC;
+}
+
+
+
+
+
+.code {
+border:1px solid #CCC;
+background:#EEE;
+padding:5px;
+font-size:12px;
+font-family:Verdana, Arial;
+color:#333333;
+}
+
+
+.selectWrap select{margin-left: 50px;width: 130px; }

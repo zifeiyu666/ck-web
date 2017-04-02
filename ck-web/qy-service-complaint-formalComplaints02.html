@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建潜在客户</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+		.addPeople{
+			border: 1px solid #ccc;
+		    text-align: center;
+		    border-radius: 4px;
+		    margin-top: 10px;
+		    margin-right:10px;
+		}
+		.selBor{
+			box-shadow: 0px 0px 8px #173c76;
+		}
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<!-- 非正式投诉处理 -->
+		<!-- 投诉单主体 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading clearfix">
+		  	投诉单基本信息
+		  </div>
+		  <div class="panel-body">
+		  	<div class="row">
+		  		<div class="col-xs-12 item">
+		    		投诉单号：<span>123346546135131</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		投诉状态：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		投诉标题：<span>。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户代码：<span>......</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		客户姓名：<span>张三</span>
+		    	</div>
+		    	
+		    	<div class="col-xs-12 item">
+		    		提交时间：<span>。。。</span>
+		    	</div>
+		    	
+		    	
+		    </div>  
+		  </div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">正式投诉确认信息</div>
+			<div class="panel-body">
+				<div class="line">
+		    		<label>调查受理人：</label><span>张三</span>
+		    	</div>
+		  		<div class='line'>
+		  			<label>增加调查受理人</label>
+		  			<div style='margin-top:10px'>
+				    	<div class="well clearfix">
+				    		<span class='glyphicon glyphicon-remove pull-right'></span>
+				    		<div class=" item">
+					    		姓名：<span>张三</span>
+					    	</div>
+					    	<div class=" item">
+					    		所属BU：<span>。。。</span>
+					    	</div>
+					    	<div class=" item">
+					    		编号：<span>354354354</span>
+					    	</div>
+				    	</div>
+				    </div>
+		  			<div class="input-group">	
+				  	  <input type="text" class="form-control" placeholder="通过订单号精确查询">
+				      <span class="input-group-btn">
+				        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">搜索</button>
+				      </span>
+				    </div>
+		  		</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">请选择添加受理人</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div style='margin-top:10px'>
+		    	<div class="well clearfix">
+		    		<span class='glyphicon glyphicon-plus pull-right'></span>
+		    		<div class=" item">
+			    		姓名：<span>张三</span>
+			    	</div>
+			    	<div class=" item">
+			    		所属BU：<span>。。。</span>
+			    	</div>
+			    	<div class=" item">
+			    		编号：<span>354354354</span>
+			    	</div>
+		    	</div>
+		    </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary">添加</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" >
+				提交
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+
+	$('.modal-body .well').click(function(){
+		$(this).toggleClass('selBor');
+	})
+</script>
+</html>

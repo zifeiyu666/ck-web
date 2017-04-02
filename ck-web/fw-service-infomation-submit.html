@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>技术信息需求反馈</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科服务号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+		<form role="form" id='create_form'>
+		    	<div class="panel panel-default">
+		    		<div class="panel-heading">
+		    			创建咨询
+		    		</div>
+		    		<div class="panel-body">
+		    			<div class="item line">
+		    				<div class='item'>
+		    					客户代码：
+		    					<span>15643543</span>
+		    				</div>
+		    				<div class='item'>
+		    					客户名称：
+		    					<span>张三</span>
+		    				</div>
+		    			</div>
+		    			<div class="item" style='margin-top:10px'>
+
+						  <div class="form-group">
+
+					        <label class="control-label">
+					          资讯内容
+					        </label>
+					        <textarea class="form-control"></textarea>
+						  </div>
+
+						  <div class="form-group">
+						    <label class="control-label">资讯人姓名</label>
+
+						      <input type="text" class="form-control" id="inputPassword3" >
+
+						  </div>
+						  <div class="form-group">
+						    <label class="control-label">联系方式</label>
+
+						      <input type="tel" class="form-control" id="inputPassword3" >
+
+						  </div>
+		    			</div>
+		    		</div>
+		    	</div>
+			</form>
+
+	</div>
+	
+
+	
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='submitBtn' >
+				提交
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	$('#submitBtn').click(function(){
+		alert('您的咨询已提交，赛科客服人员会尽快与您联系！');
+	})
+</script>
+</html>

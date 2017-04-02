@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>需求提报</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<style type="text/css">
+	.localContact{
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+
+	.panel-body{
+		overflow: auto;
+	}
+	.list{
+		margin:20px 10px 20px 10px ;
+	}
+	.item_disabled{
+		padding-bottom:6px;
+		font-weight: normal;
+		color:#666;
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.item_disabled span{
+		font-weight: bold;
+		font-size: 14px;
+		text-align: left;
+	}
+	#modalCustom,#modalComplaint{
+		position: absolute;
+		width:700px;
+		display:none;
+		left:50%;
+		margin-left:-350px;
+		top:20px;
+		z-index: 1000;
+		border:1px solid #ccc;
+		box-shadow: 0px 2px 20px #333;
+		background: #fff;
+		padding:10px ;
+	}
+	#modalCustom .title h1,#modalComplaint .title h1,#myModalLabel{
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 50px;
+	}
+	#timeSearch{
+		position: absolute;
+		width:600px;
+		display:none;
+		left:50%;
+		margin-left:-300px;
+		top:20px;
+		z-index: 10000;
+		border:1px solid #ccc;
+		box-shadow: 0px 2px 20px #333;
+		background: #fff;
+		padding:10px ;
+	}
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html" class='active'>销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html">市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>
+		</ul>
+	</div>
+	
+
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="zh-sales-contract.html">合同</a></li>
+		  <li role="presentation" class="active"><a href="zh-sales-needSubmit-list.html">需求计划</a></li>
+		  <li role="presentation"><a href="zh-sales-order.html">订单</a></li>
+		</ul>
+	</div>
+
+	<div class="wrap">
+		<button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+		    	需求提报&nbsp;<span class='glyphicon glyphicon-plus'></span>
+		  </button>
+		<div class="row">
+			<div class="col-lg-6 detail">
+				<div class="well list">
+					<div class="item">
+			    		周期：<span>....</span>
+			    	</div>
+			    	<div class="item">
+			    		业务团队：<span>。。。。。</span>
+			    	</div>
+			    	<div class="item">
+			    		客户经理：<span>张三</span>
+			    	</div>
+				</div>
+			</div>
+			<div class="col-lg-6 detail">
+				<div class="well list">
+					<div class="item">
+			    		周期：<span>....</span>
+			    	</div>
+			    	<div class="item">
+			    		业务团队：<span>。。。。。</span>
+			    	</div>
+			    	<div class="item">
+			    		客户经理：<span>张三</span>
+			    	</div>
+				</div>
+			</div>
+			<div class="col-lg-6 detail">
+				<div class="well list">
+					<div class="item">
+			    		周期：<span>....</span>
+			    	</div>
+			    	<div class="item">
+			    		业务团队：<span>。。。。。</span>
+			    	</div>
+			    	<div class="item">
+			    		客户经理：<span>张三</span>
+			    	</div>
+				</div>
+			</div>
+			<div class="col-lg-6 detail">
+				<div class="well list">
+					<div class="item">
+			    		周期：<span>....</span>
+			    	</div>
+			    	<div class="item">
+			    		业务团队：<span>。。。。。</span>
+			    	</div>
+			    	<div class="item">
+			    		客户经理：<span>张三</span>
+			    	</div>
+				</div>
+			</div>
+			<div class="col-lg-6 detail">
+				<div class="well list">
+					<div class="item">
+			    		周期：<span>....</span>
+			    	</div>
+			    	<div class="item">
+			    		业务团队：<span>。。。。。</span>
+			    	</div>
+			    	<div class="item">
+			    		客户经理：<span>张三</span>
+			    	</div>
+				</div>
+			</div>
+			<div class="col-lg-6 detail">
+				<div class="well list">
+					<div class="item">
+			    		周期：<span>....</span>
+			    	</div>
+			    	<div class="item">
+			    		业务团队：<span>。。。。。</span>
+			    	</div>
+			    	<div class="item">
+			    		客户经理：<span>张三</span>
+			    	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 查看 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">需求提报</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form role="form" id='create_form'>
+			  	<div style='line-height: 25px;'>
+				  	<div>周期：1534546846135</div>
+				  	<div>业务团队：。。。。</div>
+				  	<div>客户编号：。。。。</div>
+			  	</div>
+			  	<div class="form-group">
+				    <label>物料编号</label>
+				    <input class='form-control' type="text" >
+				</div>
+				<div class="form-group">
+				    <label>第一月需求量</label>
+				    <input class='form-control' type="text" >
+				</div>
+				<div class="form-group">
+				    <label>第二月需求量</label>
+				    <input class='form-control' type="text" >
+				</div>
+				<div class="form-group">
+				    <label>第三月需求量</label>
+				    <input class='form-control' type="text" >
+				</div>
+				<div class="form-group">
+				    <label>需求单位</label>
+				    <input class='form-control' type="text" >
+				</div>
+				<div class="form-group">
+				    <label>状态</label>
+				    <input class='form-control' type="text" >
+				</div>
+				<button class="btn btn-primary" style='width:100%'>提交</button>
+			</form>
+	      </div>
+
+	    </div>
+	  </div>
+	</div>
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+</html>

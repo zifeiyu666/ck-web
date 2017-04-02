@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建新订单</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:20%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="qy-sales-contract.html" >合同</a></li>
+			<li><a href="">需求计划</a></li>
+			<li><a href="">订单</a></li>
+			<li><a href="qy-sales-transport.html" class="active">物流</a></li>
+			<li><a href="">拜访计划</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 客户信息详情 -->
+			<h2>创建新订单</h2>
+		</div>
+
+		<!-- 客户基本信息 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单基本信息</div>
+		  <div class="panel-body">
+		    <form role="form">
+
+			  <div class="form-group">
+			    <label>价格日期</label>
+			    <input type="date" name='price_date' class="form-control"  placeholder="请输入期望发货日期">
+			  </div>
+
+			  <div class="form-group">
+			    <label>客户编号</label>
+			    <select class="selectUi" name='custom_order'>
+			    	<option>001</option>
+			    	<option>001</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>客户姓名</label>
+			    <input type="text" name='custome_name' class="form-control"  placeholder="请输入姓名">
+			  </div>
+
+			  <div class="form-group">
+			    <label>付款条件</label>
+			    <select class="selectUi" name='pay_condition'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>送达方</label>
+			    <select class='selectUi' name='send_to'  id='teamSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>运输方式</label>
+			    <select class='selectUi' name='transport_method'  id='teamSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>	
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>合同编号</label>
+			    <select class='selectUi' >
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>	
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>销售计划</label>
+			    <select class='selectUi' name='sales_plan'  id='teamSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>	
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>订单类型</label>
+			    <select name='order_type' class="selectUi">
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>客户采购号</label>
+			    <input type="text" name='custom_purchase_order' class="form-control">
+			  </div>
+
+			  <div class="form-group hidden">
+			    <label>前序订单号</label>
+			    <input type="text" name='front_order' class="form-control">
+			    <select name='front_order_sel' class="selectUi">
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    </select>
+			  </div>
+			  
+			  <div class="form-group hidden">
+			    <label>现货/合同货</label>
+			    <select name='product_type' class="selectUi">
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>创建日期</label>
+			    <input type="date" name='create_date' class="form-control"  placeholder="请输入创建日期">
+			  </div>
+
+			  <div class="form-group">
+			    <label>期望到货日期</label>
+			    <input type="date" name='delivery_date' class="form-control"  placeholder="请输入期望发货日期">
+			  </div>
+
+			  
+
+			  <div class="form-group">
+				    <label>业务团队</label>
+				    <input type="text" name='business_team' class="form-control">
+			  </div>
+
+			  <div class="form-group">
+				    <label>客户经理</label>
+				    <input type="text" name='client_manager' class="form-control">
+			  </div>
+
+			  <div class="form-group">
+				    <label>订单状态</label>
+				    <input type="text" name='order_status' class="form-control">
+			  </div>
+
+			</form>
+		  </div>
+		</div>
+
+		<!-- 订单行项目 -->
+		<div class="panel panel-primary"> 
+		  <div class="panel-heading">订单行项目<span class='glyphicon glyphicon-plus createItem'></span></div>
+		  <div class="panel-body">
+	    	
+			<!-- 业务团队 -->
+			<form class='line hideModule' id="order_line">
+				<span class='glyphicon glyphicon-remove closeContact'></span>
+				<div class="form-group">
+				    <label>序号</label>
+				    <input type="text" name='order_num' class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>物料名称</label>
+				    <input type="text" name='material_name' class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>物料号</label>
+				    <input type="text" name='material_order' class="form-control"  >
+				</div>
+				<div class="form-group">
+				    <label>数量</label>
+				    <input type="email" name='material_num'  class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>单位</label>
+				    <select name='unit' class="form-control">
+				    	<option selected="selected">TO（吨）</option>
+				    	<option>001</option>
+				    	<option>001</option>
+				    	<option>001</option>
+				    </select>
+				</div>
+				<div class="form-group">
+				    <label>货币</label>
+				    <input type="text" name='currency' class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>净价</label>
+				    <input type="text" name='net_price' class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>税率</label>
+				    <input type="text" name='tax_rate' class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>含税单价</label>
+				    <input type="text" name='tax_unit_price' class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>承兑利息</label>
+				    <input type="text" name='tax_unit_price' class="form-control">
+				</div>
+			</form> 
+		  </div>
+		</div>
+
+	   </div>
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList">
+				完成
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><ahref="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a class="active"  href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+</html>

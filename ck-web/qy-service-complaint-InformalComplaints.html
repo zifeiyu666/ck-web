@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>非正式投诉</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+
+
+	</style>
+</head>
+<body class='bg95'>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-chevron-left backBtn'  onclick="JavaScript:history.back(-1);"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<!-- <div class="nav">
+		<ul>
+			<li><a href="#" class="active">潜在客户</a></li>
+			<li><a href="#">正式客户</a></li>
+		</ul>
+	</div> -->
+	<div class="main"> <!-- 主体内容 -->
+
+		<!-- 非正式投诉处理 -->
+		<!-- 投诉单主体 -->
+				<div class="panel panel-primary"> 
+				  <div class="panel-heading clearfix">
+				  	投诉单基本信息
+				  </div>
+				  <div class="panel-body">
+				  	<div class="row">
+				  		<div class="col-xs-12 item">
+				    		投诉单号：<span>123346546135131</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		投诉状态：<span>。。。</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		投诉标题：<span>。。。</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		客户代码：<span>......</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		客户姓名：<span>张三</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		投诉类型：<span>质量</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		提交时间：<span>。。。</span>
+				    	</div>
+				    	<form action="" class="col-xs-12">
+				    		<div class="panel panel-primary">
+				    			<div class="panel-heading">
+				    				已选订单列表
+				    			</div>
+				    			<div class="panel-body">
+				    				<div class="form-group">
+				    				<ul>
+									  <li class="line">
+									  	<div>订单号：123185464353513515</div>
+									  	<div>物料号:1235351355</div>
+									  	<div>物料描述:.....</div>
+									  	<div>批次号:15645</div>
+									  	<div>损失吨数:......</div>
+									  	<div>发货单号:134135135135</div>
+									  </li>
+									  <li class="line">
+									  	<div>订单号：123185464353513515</div>
+									  	<div>物料号:1235351355</div>
+									  	<div>物料描述:.....</div>
+									  	<div>批次号:15645</div>
+									  	<div>损失吨数:......</div>
+									  	<div>发货单号:134135135135</div>
+									  </li>
+									  <li class="line">
+									  	<div>订单号：123185464353513515</div>
+									  	<div>物料号:1235351355</div>
+									  	<div>物料描述:.....</div>
+									  	<div>批次号:15645</div>
+									  	<div>损失吨数:......</div>
+									  	<div>发货单号:134135135135</div>
+									  </li>
+									</ul>
+
+							    </div>
+				    			</div>
+				    		</div>
+				    	</form>
+				    	<div class="col-xs-12 item">
+				    		运输方式：<span>。。。</span>
+				    	</div>
+						<div class="col-xs-12 item">
+				    		投诉描述：<span>。。。</span>
+				    	</div>
+				    	<div class="col-xs-12 item">
+				    		相关图片：
+				    		<div class="col-xs-12 item clearfix">
+				    			<span>图片一<span>
+				    			<button class="btn btn-primary btn-sm pull-right">查看</button>
+				    		</div>
+				    		<div class="col-xs-12 item clearfix">
+				    			<span>图片二<span>
+				    			<button class="btn btn-primary btn-sm pull-right">查看</button>
+				    		</div>
+				    	</div>
+				    </div>  
+				  </div>
+				</div>
+				<div>
+					<div class='text-warning bg-info' style='line-height: 30px;height:30px;font-size: 16px'>非正式投诉处理<span class='glyphicon glyphicon-exclamation-sign pull-right text-warning'></span></div>
+					<div class="form">
+						<label>非正式投诉大类</label>
+						<select class='form-control' id='bigClass'>
+							<option>产品</option>
+							<option>销售服务</option>
+							<option>常规服务</option>
+						</select>
+					</div>
+					<div class="form">
+						<label>非正式投诉小类</label>
+						<select class='form-control' id='smallClass'>
+							<option>物流配送</option>
+							<option>客户服务</option>
+							<option>技术服务</option>
+							<option>付款</option>
+						</select>
+					</div>
+					<div class="form">
+						<label>行动项</label>
+						<textarea name="" id="" class="form-control"></textarea>
+					</div>
+
+				</div>
+
+	</div>
+
+	
+
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList" id='nextBtn' >
+				下一步
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">客户</a></li>
+			<li><a class="active" href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src='js/conmmon.js'></script>
+<script type="text/javascript">
+	fnModal('modalComplaintBtn','modalComplaint');
+	fnModal('modalCustomBtn','modalCustom');
+	$('#smallClass').html('<option>性能</option><option>质量</option><option>包装</option><option>供应</option>')
+	$('#bigClass').change(function(){
+		var txt = $("#bigClass option:selected").text();
+		if(txt == '产品')
+		{
+			$('#smallClass').html('<option>性能</option><option>质量</option><option>包装</option><option>供应</option>')
+		}else if(txt == '销售服务')
+		{
+
+			$('#smallClass').html('<option>供应计划</option><option>价格</option><option>投诉处理</option><option>信息培训等增值服务</option><option>销售人员协调工作</option>')
+		}else if(txt == '常规服务')
+		{
+
+			$('#smallClass').html('<option>物流配送</option><option>客户服务</option><option>技术服务</option><option>付款</option>')
+		}
+	})
+</script>
+</html>

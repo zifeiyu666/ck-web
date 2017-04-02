@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>共性问题查看</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<style type="text/css">
+	.nav-pills {
+		width: 1200px;
+	    margin: 0 auto;
+	    background: #fff;
+	    margin-bottom: 10px;
+	    margin-top:-20px;
+	}
+
+	.list{
+		margin:20px 10px 20px 10px ;
+	}
+	.item_disabled{
+		padding-bottom:6px;
+		font-weight: normal;
+		color:#666;
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.item_disabled span{
+		font-weight: bold;
+		font-size: 14px;
+		text-align: left;
+	}
+
+
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html" class='active'>市场</a></li>
+			<div class="pull-right noticeWrap" style='position: relative'>
+				<a href="#" class="userFace"></a>
+
+				<div class="userWrap" style="position:absolute;padding: 10px;left:40px;top:50px;background: #fff;border:1px solid #ccc;text-align: left;box-shadow: 1px 0px 6px #ccc;display:none">
+					<div>
+						<span>用户名：</span>张三
+					</div>
+					<div>
+						<span>角色：</span>xxx
+					</div>
+					<div>
+						<span>所属单位：</span>xxx
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(".userFace").mouseover(function(){
+						$(".userWrap").css({"display":"block"})
+					}).mouseout(function(){
+						$(".userWrap").css({"display":"none"})
+					})
+				</script>
+
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>		
+		</ul>
+		
+	</div>
+	
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="zh-market-survey-list.html">市场调研</a></li>
+		  <li role="presentation" class="active"><a href="zh-market-faq-look.html">共性问题</a></li>
+		  <li role="presentation"><a href="zh-market-newProduct-submit.html">新产品需求</a></li>
+		</ul>
+	</div>
+	
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="zh-market-faq-look.html">共性问题查看</a></li>
+		  <li role="presentation"><a href="zh-market-faq-submit.html">共性问题发布</a></li>
+		</ul>
+
+		<div class="well clearfix" style='margin-top:30px'>
+			<span class="col-sm-1">1.</span>
+			<div class="col-sm-11">
+				<h5 style='font-weight: bold; line-height: 30px'><span>Q:&nbsp;</span>都提供那些运输方式？</h5>
+				<p><span>A:&nbsp;</span>海运和陆运。</p>
+			</div>
+		</div>
+		<div class="well clearfix">
+			<span class="col-sm-1">2.</span>
+			<div class="col-sm-11">
+				<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>聚烯烃提供几种包装方式？</h5>
+				<p><span>A:&nbsp;</span>两种，大包装和小包装。</p>
+			</div>
+		</div>
+		<div class="well clearfix">
+			<span class="col-sm-1">3.</span>
+			<div class="col-sm-11">
+				<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>都提供那些运输方式？</h5>
+				<p><span>A:&nbsp;</span>海运和陆运。</p>
+			</div>
+		</div>
+		<div class="well clearfix">
+			<span class="col-sm-1">4.</span>
+			<div class="col-sm-11">
+				<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>都提供那些运输方式？</h5>
+				<p><span>A:&nbsp;</span>海运和陆运。</p>
+			</div>
+		</div>
+		<div class="well clearfix">
+			<span class="col-sm-1">5.</span>
+			<div class="col-sm-11">
+				<h5 style='font-weight: bold;line-height: 30px'><span>Q:&nbsp;</span>都提供那些运输方式？</h5>
+				<p><span>A:&nbsp;</span>海运和陆运。</p>
+			</div>
+		</div>
+		
+		<!-- 分页 -->
+		<nav aria-label="Page navigation center-block">
+		  <ul class="pagination">
+		    <li>
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+	    </nav>
+
+	</div>
+
+	<!-- 查看 -->
+	<button type="button" id='modalBtn' class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal">asdf
+	</button>
+
+	<!-- 查看 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">技术信息需求</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form role="form" id='create_form'>
+		    	<div class="panel panel-default">
+		    		<div class="panel-heading">
+		    			技术信息需求问题
+		    		</div>
+		    		<div class="panel-body">
+		    			<div class="item line">
+		    				反馈内容
+		    			</div>
+		    			<div class="item" style='margin-top:10px'>
+
+						  <div class="form-group row">
+
+					        <label class="control-label col-sm-2">
+					          单选
+					        </label>
+						    <div class=" col-sm-3">
+						       <input type="radio"> item
+						    </div>
+						    <div class=" col-sm-3">
+						       <input type="radio"> item
+						    </div>
+						    <div class=" col-sm-3">
+						       <input type="radio"> item
+						    </div>
+						  </div>
+
+						  <div class="form-group row">
+
+					        <label class="control-label col-sm-2">
+					          多选
+					        </label>
+						    <div class=" col-sm-3">
+						       <input type="checkbox"> item
+						    </div>
+						    <div class=" col-sm-3">
+						       <input type="checkbox"> item
+						    </div>
+						    <div class=" col-sm-3">
+						       <input type="checkbox"> item
+						    </div>
+						  </div>
+
+						  <div class="form-group row">
+						    <label class="col-sm-2 control-label">文本框</label>
+						    <div class="col-sm-10">
+						      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+						    </div>
+						  </div>
+
+						  <div class="form-group row">
+						    <label class="col-sm-2 control-label">文件上传</label>
+						    <div class="col-sm-10">
+						      <input type="file" class="form-control" id="inputPassword3" placeholder="Password">
+						    </div>
+						  </div>
+		    			</div>
+		    		</div>
+		    	</div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary">保存</button>
+	      </div>
+	    </div>
+	  </div>
+
+	  
+	</div>
+	
+		
+
+	
+
+
+
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+
+</html>
