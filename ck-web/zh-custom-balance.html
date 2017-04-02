@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正式客户</title>
+	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+</head>
+<style type="text/css">
+	.swiper-wrap {
+	    width: 1100px;
+	    height: 500px;
+	    margin-top:30px;
+	}
+	.swiper-slide{
+		padding:30px 50px;
+	}
+	.swiper-slide .panel-body{
+		height:400px;
+		border:1px solid #ccc;
+	}
+	.localContact{
+		font-size: 14px;
+		font-family: '微软雅黑';
+	}
+	.swiper-pagination-bullet-active {
+	    opacity: 1;
+	    background: #173C76;
+	}
+	.panel-body{
+		overflow: auto;
+	}
+</style>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html" class='active'>客户</a></li>
+			<li><a href="zh-sales-contract.html">销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html">市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>	
+		</ul>
+		
+		<div class="searchWrap">
+		    <button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+		    	查看/编辑收货地址
+		    </button>
+		</div>
+	</div>
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li><a href="zh-custom-zs.html">正式客户</a></li>
+		  <li><a href="zh-custom-contract.html">合同查看</a></li>
+		  <li class="active"><a href="#">查询账户余额</a></li>
+		</ul>
+	</div>
+	<div class="wrap">
+
+		<div class="row">
+	  		<div class="col-xs-12 item line">
+	    		现金余额：<span>16554564元</span><button class="btn btn-primary pull-right" id='beizhuBtn' data-toggle="modal" data-target="#myModal01">
+	    		查看详情
+	    	</button>
+	    	</div>
+	    	
+	    	<div class="col-xs-12 item line">
+	    		承兑余额：<span >134455元</span><button class="btn btn-primary pull-right" id='beizhuBtn' data-toggle="modal" data-target="#myModal02">
+	    		查看详情
+	    	</button>
+	    	</div>
+	    	
+	    	<div class="col-xs-12 item line">
+	    		信用额度：<span >20000元</span>
+	    		<button class="btn btn-primary pull-right" id='beizhuBtn' data-toggle="modal" data-target="#myModal03">
+	    		查看详情
+	    	</button>
+	    	</div>
+		 </div>
+
+	</div>
+	<!-- Modal现金 -->
+		<div class="modal fade" id="myModal01" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">现金余额</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-xs-12 item">
+		    		业务团队：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		现金余额：<span >20000元</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		币种：<span >人民币</span>
+		    	</div>
+		      </div>
+
+		    </div>
+		  </div>
+		</div>
+		<!-- Modal承兑 -->
+		<div class="modal fade" id="myModal02" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content clearfix">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">承兑余额</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-xs-12 item">
+		    		业务团队：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		承兑余额：<span >20000元</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		币种：<span >人民币</span>
+		    	</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Modal信用额度 -->
+		<div class="modal fade" id="myModal03" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content clearfix">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">信用额度</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-xs-12 item">
+		    		业务团队：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		信用额度：<span >20000元</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		币种：<span >人民币</span>
+		    	</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+</body>
+<script type="text/javascript" src='js/zh-common.js'></script>
+<script type="text/javascript" src='js/swiper.min.js'></script>
+
+</html>

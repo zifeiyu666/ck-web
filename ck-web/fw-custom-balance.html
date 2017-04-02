@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/conmmon.js'></script>
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:33.333%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+		.ZHlist{
+			margin-bottom:5px;
+			line-height: 30px;
+		}
+		.ZHlist:hover{
+			background: #ccc;
+		}
+		#zsSearchWrap{
+			float:right;
+			padding-right:10px;
+		}
+		#zsSearchWrap input{
+			position:relative;
+			top:-3px;
+			line-height: 25px;
+			height:25px;
+			color:#999;
+			font-weight: normal;
+			padding-left:5px;
+			margin-right:8px;
+			border:none;
+		}
+		#zsSearchWrap span{
+			position:relative;
+			top:-1px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>赛科企业号</h1>
+		<span class='glyphicon glyphicon-home indexBtn'"></span>
+		<span class="glyphicon glyphicon-th-large listBtn"></span>
+	</div>
+	<div class="nav">
+		<ul>
+			<li><a href="qy-custom-qz-list.html" >潜在客户</a></li>
+			<li><a href="qy-custom-zs-list.html">正式客户</a></li>
+			<li><a href="qy-custom-transport.html" class="active">账户余额查询</a></li>
+		</ul>
+	</div>
+	<div class="main"> <!-- 主体内容 -->
+
+		<div class="title"> <!-- 正式客户列表 -->
+			<h2>账户余额查询</h2>
+		</div>
+
+		<div class="row">
+		  		<div class="col-xs-12 item line">
+		    		现金余额：<span>16554564元</span><button class="btn btn-primary pull-right" id='beizhuBtn' data-toggle="modal" data-target="#myModal01">
+		    		查看详情
+		    	</button>
+		    	</div>
+		    	
+		    	<div class="col-xs-12 item line">
+		    		承兑余额：<span >134455元</span><button class="btn btn-primary pull-right" id='beizhuBtn' data-toggle="modal" data-target="#myModal02">
+		    		查看详情
+		    	</button>
+		    	</div>
+		    	
+		    	<div class="col-xs-12 item line">
+		    		信用额度：<span >20000元</span>
+		    		<button class="btn btn-primary pull-right" id='beizhuBtn' data-toggle="modal" data-target="#myModal03">
+		    		查看详情
+		    	</button>
+		    	</div>
+			 </div>
+
+
+		</div><!-- 投诉单详情 -->
+		<!-- Modal现金 -->
+		<div class="modal fade" id="myModal01" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">现金余额</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-xs-12 item">
+		    		业务团队：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		现金余额：<span >20000元</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		币种：<span >人民币</span>
+		    	</div>
+		      </div>
+
+		    </div>
+		  </div>
+		</div>
+		<!-- Modal承兑 -->
+		<div class="modal fade" id="myModal02" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content clearfix">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">承兑余额</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-xs-12 item">
+		    		业务团队：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		承兑余额：<span >20000元</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		币种：<span >人民币</span>
+		    	</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Modal信用额度 -->
+		<div class="modal fade" id="myModal03" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content clearfix">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">信用额度</h4>
+		      </div>
+		      <div class="modal-body clearfix">
+		        <div class="col-xs-12 item">
+		    		业务团队：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		物料：<span >。。。</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		信用额度：<span >20000元</span>
+		    	</div>
+		    	<div class="col-xs-12 item">
+		    		币种：<span >人民币</span>
+		    	</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="bottomMask">
+		<div class="myBtn" >
+			<button class="btn btn-primary form-control btnList">
+				返回主页
+			</button>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a class="active" href="">客户</a></li>
+			<li><a href="">服务</a></li>
+			<li><a href="">市场</a></li>
+			<li><a href="">销售</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	/*$('.customList').on('click',function(){
+		window.location.href='qy-custom-qz-details.html';
+	})*/
+	/*input输入框样式*/
+	(function(){
+		var $val='请输入关键词';
+		$(".inputSearch").focus(function(){
+			console.log($(this).val());
+			if($(this).val() == '请输入关键词'){
+				$(this).val('').css('color','#666');
+			}
+			
+		}).blur(function(){
+			if($(this).val() == ''){
+				$(this).val($val).css('color','#999');
+			}
+			
+		})
+	})()
+</script>
+</html>
