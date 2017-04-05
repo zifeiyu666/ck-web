@@ -6,9 +6,19 @@
 	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
 	<script type="text/javascript" src='js/bootstrap.min.js'></script>
 	<script type="text/javascript" src='js/bootstrap-table.js'></script>
+	<script type="text/javascript" src='js/select2.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
 	<link rel="stylesheet" type="text/css" href="css/zh-common.css">
+	<style type="text/css">
+		.select2-selection{
+			height: 34px !important;
+		    border: 1px solid #ccc !important;
+		    border-radius: 2px !important;
+		    box-shadow: 0px 1px 1px #eee inset !important;
+		}
+	</style>
 </head>
 <body>
 	<div class="header">
@@ -146,38 +156,11 @@ glyphicon glyphicon-search'></span></button>
 					</div>
 		        </div>
 		        <div class="col-lg-6 col-sm-6">
-		        	<!-- 订单行项目 -->
+		        	<!-- 订单行项目sel02 -->
 					<div class="panel panel-primary"> 
-					  <div class="panel-heading">订单行项目<span class='glyphicon glyphicon-plus createItem'></span></div>
-					  <div class="panel-body">
-					  	<form class='line hideModule' id="order_line">
-							<div><span class='glyphicon glyphicon-remove closeItem'></span></div>
-							<div class="form-group">
-							    <label>序号:</label>
-							    1
-							</div>
-							<div class="form-group">
-							    <label>物料名称</label>
-							    <input type="text" name='material_name' class="form-control">
-							</div>
-							<div class="form-group">
-							    <label>物料号</label>
-							    <input type="text" name='material_order' class="form-control"  >
-							</div>
-							<div class="form-group">
-							    <label>数量</label>
-							    <input type="email" name='material_num'  class="form-control">
-							</div>
-							<div class="form-group">
-							    <label>单位</label>
-							    <select name='unit' class="form-control">
-							    	<option>001</option>
-							    	<option>001</option>
-							    	<option>001</option>
-							    	<option>001</option>
-							    </select>
-							</div>
-						</form>
+					  <div class="panel-heading">订单行项目<span class='glyphicon glyphicon-plus createItemNew pull-right'></span></div>
+					  <div class="panel-body orderLine">
+				    	
 					  </div>
 					</div>
 		        </div>
@@ -329,7 +312,7 @@ glyphicon glyphicon-search'></span></button>
 					  <div class="panel-body">
 					    <div class="row line">
 					    	<div class="col-xs-12 item">
-					    		序号：<span>2122222</span>
+					    		序号：<span></span>
 					    	</div>
 					    	<div class="col-xs-12 item">
 					    		物料名称：<span>。。。。。。。。</span>
@@ -365,7 +348,7 @@ glyphicon glyphicon-search'></span></button>
 
 					    <div class="row line">
 					    	<div class="col-xs-12 item">
-					    		序号：<span>2122222</span>
+					    		序号：<span></span>
 					    	</div>
 					    	<div class="col-xs-12 item">
 					    		物料名称：<span>。。。。。。。。</span>
@@ -545,4 +528,85 @@ glyphicon glyphicon-search'></span></button>
       })
 		
 </script>
+<!-- 订单行项目（sel2） -->
+<script>
+	  var num = 0;
+
+	  $(".orderLine").delegate('.closeContactnew','click',function(){
+	  	  var r=confirm("是否确定删除？")
+		  if (r==true)
+		    {
+		    	$(this).parents('.line').remove();
+		    }
+	  })
+	  
+
+	  $(".createItemNew").click(function(){
+	  	console.log(num);
+	  	num++;
+	  	var cls01='a'+num;
+	  	var cls02='b'+num;
+	  	var cls03='c'+num;
+	  	
+
+	  	 $.ajax({
+		 	url:'data.json',
+		 	success:function(data){
+		 		
+		 		var $List=$('<div class="line hideModule"><span class="glyphicon glyphicon-remove closeContactnew pull-right"></span>\
+	  					<div class="form-group orderNum">\
+							    <label>序号:</label>\
+							    <span></span>\
+							</div>\
+	  					<div class="form-group ">\
+	  					    <label>物料名称</label>\
+	  					    <input type="text" name="material_name" class="form-control">\
+	  					</div>\
+	  					\
+	  					<div class="form-group ">\
+	  					    <label>物料号</label>\
+	  					    <select name="" class="'+cls01+'"></select\
+	  					</div></div>\
+	  					<div class="form-group">\
+	  					    <label>数量</label>\
+	  					    <select name="" class='+cls02+'></select>\
+	  					</div>\
+	  					<div class="form-group">\
+	  					    <label>单位</label>\
+	  					    <select name="" class='+cls03+'></select>\
+	  					</div></div>')
+	    		$List.clone(true).prependTo($(".createItemNew").parent().next()).removeClass('hideModule');
+
+				
+			  	
+		 		$("."+cls01).select2({
+				  	  data: data,
+					  placeholder:'请选择',
+					  allowClear:true,
+					  width: '100%',
+					  height:'34px'
+				  });
+		 		$("."+cls02).select2({
+				  	  data: data,
+					  placeholder:'请选择',
+					  allowClear:true,
+					  width: '100%'
+				  });
+		 		$("."+cls03).select2({
+				  	  data: data,
+					  placeholder:'请选择',
+					  allowClear:true,
+					  width: '100%'
+				  });
+
+		 		for(var i=0;i<$('.orderNum').length;i++)
+		     	{
+		     		$('.orderNum').eq(i).find('span').html(i+1);
+		     	};
+		 	}
+		 })
+	  })
+
+</script>
+
 </html>
