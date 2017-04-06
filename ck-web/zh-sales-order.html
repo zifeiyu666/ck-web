@@ -6,7 +6,7 @@
 	<script type="text/javascript" src='js/jquery-3.1.0.min.js'></script>
 	<script type="text/javascript" src='js/bootstrap.min.js'></script>
 	<script type="text/javascript" src='js/bootstrap-table.js'></script>
-	<script type="text/javascript" src='js/select2.min.js'></script>
+	<script type="text/javascript" src='js/select2.full.min.js'></script>
 	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
@@ -58,7 +58,7 @@ glyphicon glyphicon-search'></span></button>
 
 
 		<!-- 新建订单 -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -530,6 +530,8 @@ glyphicon glyphicon-search'></span></button>
 </script>
 <!-- 订单行项目（sel2） -->
 <script>
+
+
 	  var num = 0;
 
 	  $(".orderLine").delegate('.closeContactnew','click',function(){
@@ -547,57 +549,83 @@ glyphicon glyphicon-search'></span></button>
 	  	var cls01='a'+num;
 	  	var cls02='b'+num;
 	  	var cls03='c'+num;
-	  	
+	  	var cls04='d'+num;
 
 	  	 $.ajax({
-		 	url:'data.json',
+		 	url:'selData.json',
 		 	success:function(data){
-		 		
-		 		var $List=$('<div class="line hideModule"><span class="glyphicon glyphicon-remove closeContactnew pull-right"></span>\
+		 		var aId=[];
+		 		var aName=[];
+		 		for(var i=0; i<data.obj.length; i++)
+		 		{
+		 			aId.push(JSON.parse('{"id":"'+i+'","text":"'+data.obj[i].shortText+'"}'))
+		 		}
+		 		for(var i=0; i<data.obj.length; i++)
+		 		{
+		 			aName.push(JSON.parse('{"id":"'+i+'","text":"'+data.obj[i].productId+'"}'))
+		 		}
+		 		console.log(aId)
+		 		console.log(aName)
+		 		var $List=$('<div class="line hideModule lineItem"><span class="glyphicon glyphicon-remove closeContactnew pull-right"></span>\
 	  					<div class="form-group orderNum">\
 							    <label>序号:</label>\
 							    <span></span>\
 							</div>\
 	  					<div class="form-group ">\
 	  					    <label>物料名称</label>\
-	  					    <input type="text" name="material_name" class="form-control">\
+	  					    <select name="" class='+cls01+'></select>\
 	  					</div>\
 	  					\
 	  					<div class="form-group ">\
 	  					    <label>物料号</label>\
-	  					    <select name="" class="'+cls01+'"></select\
+	  					    <select name="" class="'+cls02+'"></select>\
 	  					</div></div>\
 	  					<div class="form-group">\
 	  					    <label>数量</label>\
-	  					    <select name="" class='+cls02+'></select>\
+	  					    <input  class="form-control '+cls03+'" type="text" name="material_name">\
 	  					</div>\
 	  					<div class="form-group">\
 	  					    <label>单位</label>\
-	  					    <select name="" class='+cls03+'></select>\
+	  					    <select  class="selectUi form-control '+cls04+'">\
+                            <option value="TO">吨</option>\
+                            <option value="KG">公斤</option>\
+                            <option value="M3">立方米</option>\
+                        </select>\
 	  					</div></div>')
 	    		$List.clone(true).prependTo($(".createItemNew").parent().next()).removeClass('hideModule');
 
 				
 			  	
 		 		$("."+cls01).select2({
-				  	  data: data,
+				  	  data: aId,
 					  placeholder:'请选择',
 					  allowClear:true,
 					  width: '100%',
 					  height:'34px'
 				  });
+		 		$("."+cls01).on('select2:select', function (evt) {
+				    //取text
+					var strtext = $("."+cls01).select2('data')[0].text;
+					//取value
+					var str2value= $("."+cls01).select2("val");
+					// console.log(strtext);
+					// console.log(str2value);
+				});
+
 		 		$("."+cls02).select2({
-				  	  data: data,
+				  	  data: aName,
 					  placeholder:'请选择',
 					  allowClear:true,
 					  width: '100%'
 				  });
-		 		$("."+cls03).select2({
-				  	  data: data,
-					  placeholder:'请选择',
-					  allowClear:true,
-					  width: '100%'
-				  });
+		 		$("."+cls02).on('select2:select', function (evt) {
+				    //取text
+					var strtext = $("."+cls02).select2('data')[0].text;
+					//取value
+					var str2value= $("."+cls02).select2("val");
+					// console.log(strtext);
+					// console.log(str2value);
+				});
 
 		 		for(var i=0;i<$('.orderNum').length;i++)
 		     	{
@@ -606,6 +634,44 @@ glyphicon glyphicon-search'></span></button>
 		 	}
 		 })
 	  })
+
+	  var transferData = [];
+	  $('#finishBtn').click(function(){
+
+	  	for(var i = 0; i<$('.lineItem').length; i++){
+	  		//取text
+			var str1text = $(".a"+(i+1)).select2('data')[0].text;
+			//取value
+			var str1value= $(".a"+(i+1)).select2("val");
+			//console.log(str1text);
+			//console.log(str1value);
+
+			//取text
+			var str2text = $(".b"+(i+1)).select2('data')[0].text;
+			//取value
+			var str2value= $(".b"+(i+1)).select2("val");
+			//console.log(str2text);
+			//console.log(str2value);
+
+			var num =$(".c"+(i+1)).val();
+			var unit = $(".d"+(i+1)).val();
+
+
+			// 返回的数据
+
+			
+	  		transferData.push(JSON.parse('{"productId":"'+str1text+'","shortText":"'+str2text+'","num":"'+num+'","unit":"'+unit+'"}'));
+		}
+			// 这里是订单行返回的数据
+			console.log(transferData);
+
+			$.ajax({
+				url:'#',
+				data:'transferData',
+			})
+
+	  })
+
 
 </script>
 
