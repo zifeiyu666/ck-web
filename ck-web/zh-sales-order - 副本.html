@@ -128,12 +128,12 @@ glyphicon glyphicon-search'></span></button>
 
 						  <div class="form-group">
 						    <label>创建日期</label>
-						    <input type="date" name='create_date' class="form-control"  placeholder="请输入创建日期">
+						    <input type="text" name='create_date' class="form-control"  placeholder="请输入创建日期">
 						  </div>
 
 						  <div class="form-group">
 						    <label>期望发货日期</label>
-						    <input type="date" name='delivery_date' class="form-control"  placeholder="请输入期望发货日期">
+						    <input type="text" name='delivery_date' class="form-control"  placeholder="请输入期望发货日期">
 						  </div>
 
 						  <div class="form-group">
@@ -411,12 +411,6 @@ glyphicon glyphicon-search'></span></button>
 					</div>
 		        </div>
 		      </div>
-		      <div class="modal-footer">
-		        
-		        <button type="button" class="btn btn-primary" id='editBottom'><a href="zh-sales-order-edit.html" style="color:#fff">编辑</a></button>
-		        <button type="button" class="btn btn-primary">确认</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		      </div>
 		    </div>
 		  </div>
 		</div>
@@ -518,17 +512,22 @@ glyphicon glyphicon-search'></span></button>
 				  '<button class="btn btn-default" type="button" style="margin-right:5px" id="editBtn">',
 				    '编辑',
 				  '</button>',
+				  '<button class="btn btn-default" type="button" id="editBtn">',
+				    '删除',
+				  '</button>',
 	          ].join('');}
 
       initTable();
 
       $('#editBtn').click(function(){
       	$('.add').trigger('click');
-      	return false;
       })
 
       $("#searchBtn").click(function(){
       	$("#closeBtn").trigger("click");
+      	$.ajax({
+      		
+      	})
       })
 		
 </script>
