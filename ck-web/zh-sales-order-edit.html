@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建新订单</title>
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi" /> 
+	<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='js/loaction02.js'></script> <!-- 三级联动 -->
+	<script type="text/javascript" src='js/select2.full.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/zh-common.css"> <!-- 头尾部css -->
+	<style type="text/css">
+		.nav{
+			height: 35px;
+			border-bottom:1px solid #e5e5e5;
+			overflow: hidden;
+			color:#333;
+			margin-top:45px;
+		}
+		.nav ul li{
+			float:left;
+			width:20%;
+			height: 100%;
+			text-align: center;
+		}
+		.nav ul li a{
+			font-size: 16px;
+			color: #333;
+			height: 100%;
+			line-height:35px;
+			font-weight: bold;
+		}
+		.nav .active{
+			color: #173c76;
+		}
+		/*main*/
+		.main{
+			margin:0 10px;
+			margin-bottom:84px;
+			margin-top:60px;
+		}
+		.main .title{
+			margin:20px 0;
+			height:20px;
+		}
+		.main .title h2{
+			display:inline-block;
+			color:#333;
+			font-size: 16px;
+			line-height: 20px;
+			height:20px;
+			padding-left:10px;
+			border-left: 5px solid #173c76;
+			font-weight: bold;
+		}
+		
+		.select2-selection{
+			height: 34px !important;
+		    border: 1px solid #ccc !important;
+		    border-radius: 2px !important;
+		    box-shadow: 0px 1px 1px #eee inset !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<ul class='mainNav'>
+			<li><a href="zh-custom-zs.html">客户</a></li>
+			<li><a href="zh-sales-contract.html" class='active'>销售</a></li>
+			<li><a href="zh-service-complaint-list.html" >服务</a></li>
+			<li><a href="zh-market-faq-look.html">市场</a></li>
+			<div class="pull-right noticeWrap" >
+				<a href="#" class="userFace"></a>
+				<a href="zh-market-notice.html" class='notice'><span style='margin-right: 6px'>未读消息</span><span class="badge">42</span></a>
+			</div>
+		</ul>
+	</div>
+
+	<div class='nav-pills-wraper'>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="zh-sales-contract.html">合同</a></li>
+		  <li role="presentation"><a href="zh-sales-needSubmit-list.html">需求计划</a></li>
+		  <li role="presentation"  class="active"><a href="zh-sales-order.html">订单</a></li>
+		</ul>
+	</div>
+
+	<div class="wrap"> <!-- 主体内容 -->
+
+		<!-- 客户基本信息 -->
+		<div class="panel panel-default"> 
+		  <div class="panel-heading">订单基本信息</div>
+		  <div class="panel-body">
+		    <form role="form">
+			  
+			  <div class="form-group">
+			    <label>客户编号：</label>
+			    1231556546
+			  </div>
+
+			  <div class="form-group">
+			    <label>客户姓名：</label>
+			    张三
+			  </div>
+
+			  <div class="form-group">
+			    <label>付款条件：</label>
+			    。。。
+			  </div>
+
+			  <div class="form-group">
+			    <label>送达方</label>
+			    <select class='selectUi' name='send_to'  id='teamSelect'>
+			    	<option>001</option>
+			    	<option>002</option>
+			    	<option>003</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>运输方式</label>
+			    <select class='selectUi' name='transport_method'  id='teamSelect'>
+			    	<option>海运</option>
+			    	<option>铁路运输</option>
+			    	<option>联合运输</option>	
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>合同编号</label>
+			    <input type="text" name='contract_order' class="form-control">
+			  </div>
+
+			  <div class="form-group">
+			    <label>订单类型</label>
+			    <select name='order_type' class="selectUi">
+			    	<option>标准订单（固液体）</option>
+			    	<option>寄售结算订单</option>
+			    	<option>废料订单</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>客户采购号</label>
+			    <input type="text" name='custom_purchase_order' class="form-control">
+			  </div>
+
+			  <div class="form-group hidden">
+			    <label>前序订单号</label>
+			    <input type="text" name='front_order' class="form-control">
+			    <select name='front_order_sel' class="selectUi">
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    </select>
+			  </div>
+			  
+			  <div class="form-group hidden">
+			    <label>现货/合同货</label>
+			    <select name='product_type' class="selectUi">
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    	<option>001</option>
+			    </select>
+			  </div>
+
+			  <div class="form-group">
+			    <label>创建日期</label>
+			    <input type="date" name='create_date' class="form-control"  placeholder="请输入创建日期">
+			  </div>
+
+			  <div class="form-group">
+			    <label>期望发货日期</label>
+			    <input type="date" name='delivery_date' class="form-control"  placeholder="请输入期望发货日期">
+			  </div>
+
+			  <div class="form-group">
+				    <label>业务团队</label>
+				    <input type="text" name='business_team' class="form-control">
+			  </div>
+
+			  <div class="form-group">
+				    <label>客户经理</label>
+				    <input type="text" name='client_manager' class="form-control">
+			  </div>
+
+			  <div class="form-group">
+				    <label>订单状态</label>
+				    <input type="text" name='order_status' class="form-control">
+			  </div>
+
+			</form>
+		  </div>
+		</div>
+
+		<!-- 订单行项目sel02 -->
+		<div class="panel panel-default"> 
+		  <div class="panel-heading">订单行项目<span class='glyphicon glyphicon-plus createItemNew pull-right'></span></div>
+		  <div class="panel-body orderLine">
+	    	
+		  </div>
+		</div>
+
+	   </div>
+	
+</body>
+<script type="text/javascript" src='js/zh-conmmon.js'></script>
+
+<!-- 订单行项目（sel2） -->
+<script>
+
+
+	  var num = 0;
+
+	  $(".orderLine").delegate('.closeContactnew','click',function(){
+	  	  var r=confirm("是否确定删除？")
+		  if (r==true)
+		    {
+		    	$(this).parents('.line').remove();
+		    }
+	  })
+	  
+	  // 回显已有订单行
+	  $.ajax({
+		url:'editData.json',
+		success: function(data){
+			num++;
+		  	var cls01='a'+num;
+		  	var cls02='b'+num;
+		  	var cls03='c'+num;
+		  	var cls04='d'+num;
+
+			var aId=[];
+			var aName=[];
+			var aNum=[];
+			var aUnit=[];
+			for(var i=0; i<data.length; i++)
+	 		{
+	 			aId.push(JSON.parse('{"id":"'+i+'","text":"'+data[i].productId+'"}'));
+	 			aName.push(JSON.parse('{"id":"'+i+'","text":"'+data[i].shortText+'"}'));
+	 			aNum.push(data[i].num);
+	 			aUnit.push(data[i].processUnit);
+	 		}
+	 		for(var j=data.length-1; j>=0;j--)
+	 		{
+	 			console.log(aId[j].text);
+	 			var $List=$('<div class="line hideModule lineItem"><span class="glyphicon glyphicon-remove closeContactnew pull-right"></span>\
+	  					<div class="form-group orderNum">\
+							    <label>序号:</label>\
+							    <span></span>\
+							</div>\
+	  					<div class="form-group ">\
+	  					    <label>物料名称</label>\
+	  					    <select name="" class='+cls01+'>\
+	  					    	<option value="'+j+'" selected="selected">'+aName[j].text+'</option>\
+	  					    </select>\
+	  					</div>\
+	  					\
+	  					<div class="form-group ">\
+	  					    <label>物料号</label>\
+	  					    <select name="" class="'+cls02+'">\
+	  					    	<option value="'+j+'" selected="selected">'+aId[j].text+'</option>\
+	  					    </select>\
+	  					</div></div>\
+	  					<div class="form-group">\
+	  					    <label>数量</label>\
+	  					    <input  class="form-control '+cls03+'" type="text" name="material_name" value="'+aNum[j]+'">\
+	  					</div>\
+	  					<div class="form-group">\
+	  					    <label>单位</label>\
+	  					    <select  class="selectUi form-control '+cls04+'">\
+                            <option value="TO">吨</option>\
+                            <option value="KG">公斤</option>\
+                            <option value="M3">立方米</option>\
+                        </select>\
+	  					</div></div>')
+	    		$List.clone().prependTo($(".createItemNew").parent().next()).removeClass('hideModule');
+
+
+	    		$("."+cls01).select2({
+				  	  data: aName,
+				  	  width: '100%',
+				  });
+
+
+
+		 		$("."+cls02).select2({
+				  	  data: aId,
+					  width: '100%'
+				  });
+				
+
+		 		for(var i=0;i<$('.orderNum').length;i++)
+		     	{
+		     		$('.orderNum').eq(i).find('span').html(i+1);
+		     	};
+	 		}
+	 			
+
+		}
+	  })
+
+	  // 新增订单行
+	  $(".createItemNew").click(function(){
+	  	console.log(num);
+	  	num++;
+	  	var cls01='a'+num;
+	  	var cls02='b'+num;
+	  	var cls03='c'+num;
+	  	var cls04='d'+num;
+
+	  	 $.ajax({
+		 	url:'selData.json',
+		 	success:function(data){
+		 		var aId=[];
+		 		var aName=[];
+		 		for(var i=0; i<data.obj.length; i++)
+		 		{
+		 			aId.push(JSON.parse('{"id":"'+i+'","text":"'+data.obj[i].shortText+'"}'))
+		 		}
+		 		for(var i=0; i<data.obj.length; i++)
+		 		{
+		 			aName.push(JSON.parse('{"id":"'+i+'","text":"'+data.obj[i].productId+'"}'))
+		 		}
+
+		 		var $List=$('<div class="line hideModule lineItem"><span class="glyphicon glyphicon-remove closeContactnew pull-right"></span>\
+	  					<div class="form-group orderNum">\
+							    <label>序号:</label>\
+							    <span></span>\
+							</div>\
+	  					<div class="form-group ">\
+	  					    <label>物料名称</label>\
+	  					    <select name="" class='+cls01+'></select>\
+	  					</div>\
+	  					\
+	  					<div class="form-group ">\
+	  					    <label>物料号</label>\
+	  					    <select name="" class="'+cls02+'"></select>\
+	  					</div></div>\
+	  					<div class="form-group">\
+	  					    <label>数量</label>\
+	  					    <input  class="form-control '+cls03+'" type="text" name="material_name">\
+	  					</div>\
+	  					<div class="form-group">\
+	  					    <label>单位</label>\
+	  					    <select  class="selectUi form-control '+cls04+'">\
+                            <option value="TO">吨</option>\
+                            <option value="KG">公斤</option>\
+                            <option value="M3">立方米</option>\
+                        </select>\
+	  					</div></div>')
+	    		$List.clone(true).prependTo($(".createItemNew").parent().next()).removeClass('hideModule');
+
+				
+			  	
+		 		$("."+cls01).select2({
+				  	  data: aId,
+					  placeholder:'请选择',
+					  allowClear:true,
+					  width: '100%',
+					  height:'34px'
+				  });
+
+
+		 		$("."+cls02).select2({
+				  	  data: aName,
+					  placeholder:'请选择',
+					  allowClear:true,
+					  width: '100%'
+				  });
+
+
+		 		for(var i=0;i<$('.orderNum').length;i++)
+		     	{
+		     		$('.orderNum').eq(i).find('span').html(i+1);
+		     	};
+		 	}
+		 })
+	  })
+
+	  var transferData = [];
+	  $('#finishBtn').click(function(){
+
+	  	for(var i = 0; i<$('.lineItem').length; i++){
+	  		//取text
+			var str1text = $(".a"+(i+1)).select2('data')[0].text;
+			//取value
+			var str1value= $(".a"+(i+1)).select2("val");
+			//console.log(str1text);
+			//console.log(str1value);
+
+			//取text
+			var str2text = $(".b"+(i+1)).select2('data')[0].text;
+			//取value
+			var str2value= $(".b"+(i+1)).select2("val");
+			//console.log(str2text);
+			//console.log(str2value);
+
+			var num =$(".c"+(i+1)).val();
+			var unit = $(".d"+(i+1)).val();
+
+
+			// 返回的数据
+
+			
+	  		transferData.push(JSON.parse('{"productId":"'+str1text+'","shortText":"'+str2text+'","num":"'+num+'","unit":"'+unit+'"}'));
+		}
+
+			console.log(transferData);
+
+	  })
+
+
+</script>
+</html>
